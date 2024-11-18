@@ -15,7 +15,7 @@ export const Logo = React.forwardRef(
             <a
                 href="/"
                 className={`flex items-center ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
-                    } whitespace-nowrap text-2xl px-5 py-4 transition-all duration-300`}
+                    } whitespace-nowrap text-2xl px-6 py-4 my-1 transition-all duration-300`}
             >
                 {img ? (
                     <img

@@ -2,7 +2,9 @@ import React, { useState, useContext } from 'react';
 import { SidebarContext } from './Sidebar';
 import { FaAngleDown, FaAngleUp, FaRegCircle } from 'react-icons/fa';
 
+
 export const Submenu = React.forwardRef(
+
     (
         {
             children,
@@ -25,8 +27,8 @@ export const Submenu = React.forwardRef(
             <div>
                 <div
                     onClick={handleClick}
-                    className={`flex items-center gap-4 p-2 ${borderRadius} ${disabled ? "cursor-default opacity-60" : "cursor-pointer"}
-                        ${open ? "bg-blue-600 text-white" : customizer.textColor} transition`}
+                    className={`flex items-center gap-4 py-2.5 px-3 hover:bg-indigo-400 hover:bg-opacity-20 hover:text-indigo-400 ${borderRadius} ${disabled ? "cursor-default opacity-60" : "cursor-pointer"}
+                        ${open ? "bg-indigo-400 text-white" : customizer.textColor} transition`}
                 >
                     <div className="flex items-center">
                         {icon ? icon : <FaRegCircle />}

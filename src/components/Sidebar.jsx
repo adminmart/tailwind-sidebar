@@ -40,13 +40,13 @@ export const Sidebar = React.forwardRef(
 
             <div
                 ref={ref}
-                className={`flex flex-col transition-width duration-300`}
+                className={`flex flex-col transition-width duration-300 border-r h-screen`}
                 style={{ width: toggleWidth, color: currentTextColor, }}
                 onMouseEnter={() => setIsSidebarHover(true)}
                 onMouseLeave={() => setIsSidebarHover(false)}
             >
 
-                <div className="p-4">
+                <div className="h-full">
                     <SidebarContext.Provider value={{ textColor, isCollapse, width, collapsewidth, themeColor }}>
                         {children}
                     </SidebarContext.Provider>

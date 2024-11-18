@@ -12,9 +12,9 @@ export const Menu = React.forwardRef(
         const customizer = React.useContext(SidebarContext);
 
         return (
-            <div className={`px-${customizer.isCollapse ? '2' : '3'} pt-2`}>
+            <div className={`px-${customizer.isCollapse ? '2' : '6'} pt-4 `}>
                 <nav ref={ref}>
-                    <div className={`py-1 text-${customizer.textColor} px-0 leading-5 font-bold text-xs text-left`}>
+                    <div className={`text-${customizer.textColor} px-0 leading-5 font-bold text-xs text-left`}>
                         {!customizer.isCollapse ? subHeading : '...'}
                     </div>
                     <ul>

@@ -7,14 +7,15 @@ export const Profile = React.forwardRef(
             userName = "",
             designation = "",
             userimg = "",
+            totalWidth = "269px",
             isCollapse = false,
         },
         ref
     ) => {
         return (
-            <div>
+            <div className='fixed bottom-0 w-full bg-white' style={{ maxWidth: totalWidth }}>
                 {!isCollapse && (
-                    <div className="flex items-center gap-2 m-3 p-2 rounded-lg bg-gray-200">
+                    <div className="flex items-center gap-2 m-6 p-4 rounded-lg bg-cyan-400 bg-opacity-15" >
                         <img
                             alt="User Avatar"
                             src={userimg}
@@ -36,8 +37,9 @@ export const Profile = React.forwardRef(
                             </button>
                         </div>
                     </div>
-                )}
-            </div>
+                )
+                }
+            </div >
         );
     }
 );
