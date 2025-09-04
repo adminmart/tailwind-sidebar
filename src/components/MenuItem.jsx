@@ -1,60 +1,71 @@
-import * as React from "react";
+// components/MenuItem.jsx
+import React from "react";
 import { SidebarContext } from "./Sidebar";
-import { FaRegCircle } from "react-icons/fa6";
-export const MenuItem = React.forwardRef(
-    (
-        {
-            children,
-            icon,
-            link = "#",
-            badge = false,
-            badgeColor = "bg-blue-500",
-            background = "bg-indigo-400",
-            text = "text-indigo-400",
-            badgeContent = "6",
-            textFontSize = "text-sm",
-            borderRadius = "rounded-lg",
-            disabled = false,
-            badgeType = "filled",
-            target = ""
-        },
-        ref
-    ) => {
-        const customizer = React.useContext(SidebarContext);
+import { cn } from "@/lib/utils";
 
-        return (
-            <div className="flex items-center gap-4 mb-1">
-                <a
-                    href={link}
-                    className={`flex gap-4 py-2.5 px-3 items-center w-full ${borderRadius} ${disabled ? "cursor-default opacity-60" : "cursor-pointer"
-                        } ${customizer.isCollapse ? "text-white" : customizer.textColor
-                        } hover:bg-opacity-20 hover:${background} hover:${text} transition`}
-                    target={target}
-                    ref={ref}
-                >
-                    <div>
-                        {icon ? icon : <FaRegCircle />}
-                    </div>
+import { Link } from "react-router";
+import { Icon } from "@iconify/react";
 
-                    <div className="flex-1">
-                        {!customizer.isCollapse && (
-                            <span className={`${textFontSize} leading-tight`}>
-                                {children}
-                            </span>
-                        )}
-                    </div>
+export const MenuItem = ({
+    children,
+    icon,
+    link = "#",
+    badge = false,
+    badgeColor = "bg-blue-500",
+    badgeTextColor = "text-white",
+    badgeContent = "6",
+    textFontSize = "text-sm",
+    borderRadius = "rounded-lg",
+    disabled = false,
+    isSelected = false,
+    badgeType = "filled", // support "outlined" later
+    target = "",
+    asChild = false,
+}) => {
+    const customizer = React.useContext(SidebarContext);
+    const isCollapse = customizer?.isCollapse;
 
-                    <div>
+    return (
+        <div className="mb-1">
+            <Link
+                to={link}
+                target={target}
+                className={cn(
+                    "flex items-center w-full gap-4 py-2.5 px-3 transition-all",
+                    borderRadius,
+                    disabled
+                        ? "cursor-not-allowed opacity-60"
+                        : "hover:bg-opacity-20 hover:bg-primary hover:text-primary",
+                    isSelected ? "bg-primary text-white" : "",
+                    isCollapse ? "justify-center" : "justify-start",
+                    customizer?.textColor
+                )}
+            >
+                {/* Icon */}
+                <div className="min-w-[20px]">{icon ? icon : <Icon icon="solar:stop-circle-linear" />}</div>
+
+                {/* Label + Badge */}
+                {!isCollapse && (
+                    <div className="flex items-center justify-between w-full">
+                        <span className={`${textFontSize} leading-tight`}>{children}</span>
+
                         {badge && (
                             <span
-                                className={`inline-flex items-center justify-center ${badgeColor} text-white text-xs font-bold px-2 py-1 rounded`}
+                                className={cn(
+                                    "ml-auto px-2 py-0.5 rounded text-xs font-bold",
+                                    badgeColor,
+                                    badgeTextColor,
+                                    badgeType === "outlined"
+                                        ? "border bg-transparent"
+                                        : "bg-opacity-100"
+                                )}
                             >
                                 {badgeContent}
                             </span>
                         )}
                     </div>
-                </a>
-            </div>
-        );
-    }
-);
+                )}
+            </Link>
+        </div>
+    );
+};

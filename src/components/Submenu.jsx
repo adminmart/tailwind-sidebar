@@ -1,55 +1,90 @@
-import React, { useState, useContext } from 'react';
-import { SidebarContext } from './Sidebar';
-import { FaAngleDown, FaAngleUp, FaRegCircle } from 'react-icons/fa';
+// // components/sidebar/Submenu.tsx
+// import React, { useState } from "react";
+// import { ChevronRight, ChevronDown } from "lucide-react";
+
+// export function Submenu({
+//     title,
+//     children,
+// }) {
+//     const [open, setOpen] = useState(false);
+
+//     return (
+//         <div className="w-full">
+//             <button
+//                 onClick={() => setOpen(!open)}
+//                 className="w-full flex items-center justify-between text-left text-sm font-medium px-3 py-2 rounded-md hover:bg-muted/30 transition-colors"
+//             >
+//                 <span>{title}</span>
+//                 {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+//             </button>
+
+//             {open && (
+//                 <div className="pl-4 border-l border-muted/30 ml-2 mt-1 space-y-1">
+//                     {children}
+//                 </div>
+//             )}
+//         </div>
+//     );
+// }
 
 
-export const Submenu = React.forwardRef(
+// components/sidebar/Submenu.tsx
+import * as React from "react";
+import {
+    Collapsible,
+    CollapsibleTrigger,
+    CollapsibleContent,
+} from "@/components/ui/collapsible";
+import { ChevronRight, ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils"; // shadcn utility (optional)
+import { Icon } from '@iconify/react';
 
-    (
-        {
-            children,
-            title = "",
-            icon,
-            borderRadius = "rounded-lg",
-            textFontSize = "text-sm",
-            disabled = false,
-        },
-        ref
-    ) => {
-        const customizer = useContext(SidebarContext);
-        const [open, setOpen] = useState(false);
 
-        const handleClick = () => {
-            setOpen(prevOpen => !prevOpen);
-        };
+export function Submenu({
+    title,
+    children,
+    icon,
+    textFontSize = "text-sm",
+    disabled = false,
+    borderRadius = "8px",
+}) {
+    const [open, setOpen] = React.useState(false);
 
-        return (
-            <div>
-                <div
-                    onClick={handleClick}
-                    className={`flex items-center gap-4 py-2.5 px-3 hover:bg-indigo-400 hover:bg-opacity-20 hover:text-indigo-400 ${borderRadius} ${disabled ? "cursor-default opacity-60" : "cursor-pointer"}
-                        ${open ? "bg-indigo-400 text-white" : customizer.textColor} transition`}
+    return (
+        <Collapsible open={open} onOpenChange={setOpen}>
+            <CollapsibleTrigger asChild>
+                <button
+                    disabled={disabled}
+                    className={cn(
+                        "w-full flex items-center justify-between gap-2 px-3 py-2 rounded-md transition group",
+                        "hover:bg-muted/40 text-muted-foreground",
+                        open ? "bg-primary/80 text-white" : "",
+                        disabled ? "opacity-50 cursor-not-allowed" : "",
+                        borderRadius
+                    )}
                 >
-                    <div className="flex items-center">
-                        {icon ? icon : <FaRegCircle />}
-                    </div>
-
-                    {!customizer.isCollapse && (
-                        <span className={`${textFontSize} leading-tight`}>
+                    <div className="flex items-center gap-3">
+                        <span className="text-muted-foreground">
+                            {icon ? icon : <Icon icon="solar:stop-circle-linear" />}
+                        </span>
+                        <span className={`${textFontSize} group-hover:text-foreground`}>
                             {title}
                         </span>
-                    )}
-
-                    {!customizer.isCollapse && (open ? <FaAngleUp /> : <FaAngleDown />)}
-                </div>
-
-                {/* Only render children when 'open' is true */}
-                {open && (
-                    <div className="pl-6">
-                        {children}
                     </div>
-                )}
-            </div>
-        );
-    }
-);
+
+                    {open ? (
+                        <ChevronDown size={16} className="transition" />
+                    ) : (
+                        <ChevronRight size={16} className="transition" />
+                    )}
+                </button>
+            </CollapsibleTrigger>
+
+            <CollapsibleContent
+                className="ml-5 mt-1 pl-2 border-l border-border space-y-1"
+            >
+                {children}
+            </CollapsibleContent>
+        </Collapsible>
+    );
+}
