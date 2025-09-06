@@ -1,34 +1,3 @@
-// // components/sidebar/Submenu.tsx
-// import React, { useState } from "react";
-// import { ChevronRight, ChevronDown } from "lucide-react";
-
-// export function Submenu({
-//     title,
-//     children,
-// }) {
-//     const [open, setOpen] = useState(false);
-
-//     return (
-//         <div className="w-full">
-//             <button
-//                 onClick={() => setOpen(!open)}
-//                 className="w-full flex items-center justify-between text-left text-sm font-medium px-3 py-2 rounded-md hover:bg-muted/30 transition-colors"
-//             >
-//                 <span>{title}</span>
-//                 {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-//             </button>
-
-//             {open && (
-//                 <div className="pl-4 border-l border-muted/30 ml-2 mt-1 space-y-1">
-//                     {children}
-//                 </div>
-//             )}
-//         </div>
-//     );
-// }
-
-
-
 import * as React from "react";
 import {
     Collapsible,
@@ -38,10 +7,6 @@ import {
 import { ChevronRight, ChevronDown, CircleDot } from "lucide-react";
 import { SidebarContext } from "./Sidebar";
 import clsx from "clsx";
-
-
-
-
 
 type SubmenuProps = {
     children: React.ReactNode;
@@ -63,30 +28,35 @@ export function Submenu({
     const customizer = React.useContext(SidebarContext);
 
     return (
-
-        <div
-            className={` ${customizer.isCollapse ? "px-2" : "px-4"
-                }`}
-
-        >
-            <Collapsible open={open} onOpenChange={setOpen}>
+        <div className="w-full">
+            <Collapsible
+                open={open}
+                onOpenChange={setOpen}
+                className="flex  flex-col px-3"
+            >
                 <CollapsibleTrigger asChild>
                     <button
                         disabled={disabled}
                         onClick={() => setOpen(!open)}
                         className={clsx(
-                            "w-full  cursor-pointer flex items-center justify-between  py-2.5 px-3 mb-1 group transition-colors",
+                            "flex items-center justify-between rounded-md  p-2.5 transition-colors ",
                             borderRadius,
+
+                            {
+                                "cursor-not-allowed opacity-60 ": disabled,
+                                "cursor-pointer": !disabled,
+                                "justify-center px-3": customizer.isCollapse,
+                                "justify-between": !customizer.isCollapse,
+                            }
 
                         )}
                         style={{
                             color: open ? "#fff" : customizer?.textColor,
                             backgroundColor: open ? customizer?.themeColor : undefined,
-
                         }}
                     >
                         {/* Icon + Title */}
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 ">
                             <span className="text-inherit">
                                 {icon ? icon : <CircleDot size={20} />}
                             </span>
@@ -100,26 +70,22 @@ export function Submenu({
                         </div>
 
                         {/* Chevron */}
-                        {!customizer?.isCollapse && (
-                            open ? <ChevronDown size={16} /> : <ChevronRight size={16} />
-                        )}
+                        {!customizer?.isCollapse &&
+                            (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
                     </button>
                 </CollapsibleTrigger>
 
                 {/* Submenu Items */}
+
                 <CollapsibleContent
                     className={clsx(
-                        "ml-5 mt-1 border-l border-border space-y-1 pl-2",
-                        customizer?.direction === "rtl" && "ml-0 mr-5 border-r pl-0 pr-2"
+                        "mt-1 flex flex-col space-y-1",
+                        customizer?.isCollapse && "items-center"
                     )}
                 >
                     {children}
                 </CollapsibleContent>
             </Collapsible>
-        </div>
+        </div >
     );
 }
-
-
-
-

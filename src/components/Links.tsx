@@ -15,7 +15,7 @@ function Links({
     ...props
 }: MenuItemProps) {
     return (
-        <Component {...props} style={{ textDecoration: "none" }}>
+        <Component {...props} style={{ textDecoration: "none" }} >
             {children}
         </Component>
     )

@@ -1,6 +1,3 @@
-
-
-
 import { BrowserRouter, Link } from "react-router-dom";
 import {
   SidebarContent,
@@ -11,27 +8,35 @@ import {
   SidebarMenuItem,
   SidebarMenuButton,
 } from "./components/ui/sidebar";
-import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar"
-import { MenuLabel } from './components/MenuLabel'
+import { SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
+import { MenuLabel } from "./components/MenuLabel";
 import { Sidebar } from "./components/Sidebar";
-import { MenuItem } from './components//MenuItem'
-import { Submenu } from './components/Submenu'
+import { MenuItem } from "./components//MenuItem";
+import { Submenu } from "./components/Submenu";
 import { Logo } from "./components/Logo";
-import { Home, ShoppingCart, BarChart2, Calendar, MessageCircle } from "lucide-react";
-
+import {
+  Home,
+  ShoppingCart,
+  BarChart2,
+  Calendar,
+  MessageCircle,
+  ShieldBan,
+} from "lucide-react";
 
 function App() {
-
-
   return (
     <>
       <BrowserRouter>
         <SidebarProvider>
           <main>
-
-            <Sidebar isCollapse={false} mode="light" width={"270px"}>
-              <SidebarHeader >
-                <Logo img="https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg" component={Link} href="https://github.com/adminmart/tailwind-sidebar/blob/main/src/App.jsx" />
+            <SidebarTrigger />
+            <Sidebar isCollapse={false} mode="light" >
+              <SidebarHeader>
+                <Logo
+                  img="https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg"
+                  component={Link}
+                  href="https://github.com/adminmart/tailwind-sidebar/blob/main/src/App.jsx"
+                />
               </SidebarHeader>
 
               <SidebarContent>
@@ -56,23 +61,14 @@ function App() {
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-                          <MenuItem
-                            icon={<ShoppingCart size={20} />}
-                            link="/"
-
-                          >
+                          <MenuItem icon={<ShoppingCart size={20} />} link="/">
                             eCommerce
                           </MenuItem>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-
-                          <MenuItem
-                            icon={<BarChart2 size={20} />}
-                            link="/"
-
-                          >
+                          <MenuItem icon={<BarChart2 size={20} />} link="/">
                             Analytical
                           </MenuItem>
                         </SidebarMenuButton>
@@ -82,33 +78,20 @@ function App() {
                 </SidebarGroup>
 
                 <SidebarGroup>
-
                   <MenuLabel subHeading="APPS" />
-
 
                   <SidebarGroupContent>
                     <SidebarMenu>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-
-                          <MenuItem
-                            icon={<MessageCircle size={20} />}
-                            link="/"
-
-                          >
+                          <MenuItem icon={<MessageCircle size={20} />} link="/">
                             Chat
                           </MenuItem>
                         </SidebarMenuButton>
                       </SidebarMenuItem>
                       <SidebarMenuItem>
                         <SidebarMenuButton asChild>
-
-
-                          <MenuItem
-                            icon={<Calendar size={20} />}
-                            link="/"
-
-                          >
+                          <MenuItem icon={<Calendar size={20} />} link="/">
                             Calendar
                           </MenuItem>
                         </SidebarMenuButton>
@@ -120,36 +103,37 @@ function App() {
                 <SidebarGroup>
                   <MenuLabel subHeading="Others" />
 
-
                   <SidebarGroupContent>
                     <SidebarMenu>
                       <SidebarMenuItem>
-
                         <Submenu title="Menu Level">
-                          <MenuItem>Post</MenuItem>
-                          <MenuItem>Details</MenuItem>
+                          <MenuItem >Level 1.1</MenuItem>
+                          <MenuItem>Level 1.2</MenuItem>
 
                           <Submenu title="Level 2">
-                            <MenuItem link="/new">New</MenuItem>
-                            <MenuItem link="/hello">Hello</MenuItem>
+                            <MenuItem >Level 2.1</MenuItem>
+                            <MenuItem >Level 2.2</MenuItem>
                           </Submenu>
                         </Submenu>
 
+                        <MenuItem
 
+                          disabled={true}
+                          icon={<ShieldBan size={20} />}
+                        >
+                          Disabled
+                        </MenuItem>
                       </SidebarMenuItem>
                     </SidebarMenu>
                   </SidebarGroupContent>
-
                 </SidebarGroup>
               </SidebarContent>
             </Sidebar>
           </main>
-        </SidebarProvider >
-
+        </SidebarProvider>
       </BrowserRouter >
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
