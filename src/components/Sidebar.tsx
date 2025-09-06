@@ -220,11 +220,28 @@
 import React from "react";
 import {
     Sidebar as ShadSidebar,
-  
     SidebarFooter,
-} from "@/components/ui/sidebar";
+} from "./ui/sidebar";
 
 import { Profile } from "./UserProfile";
+
+type SidebarProps = {
+    children: React.ReactNode;
+    width?: string;
+    collapsewidth?: string;
+    textColor?: string;
+    isCollapse?: boolean;
+    themeColor?: string;
+    themeSecondaryColor?: string;
+    mode?: "light" | "dark";
+    direction?: "ltr" | "rtl";
+    userName?: string;
+    designation?: string;
+    showProfile?: boolean;
+    userimg?: string;
+    onLogout?: () => void;
+};
+
 
 export const SidebarContext = React.createContext({
     width: "270px",
@@ -232,45 +249,63 @@ export const SidebarContext = React.createContext({
     textColor: "#8D939D",
     isCollapse: false,
     themeColor: "#5d87ff",
+    themeSecondaryColor: "#49beff",
+    direction: 'ltr'
 });
 
+let handleLogout = () => {
+    alert("Logout Successfully");
+};
 
 export const Sidebar = ({
     children,
-    width = "270px",
+    width = "260px",
     collapsewidth = "80px",
-    themeColor = "#5d87ff",
     textColor = "#2b2b2b",
     isCollapse = false,
+    themeColor = "#5d87ff",
+    themeSecondaryColor = "#49beff",
+    mode = "light",
+    direction = "ltr",
     userName = "Mathew",
     designation = "Designer",
-    userimg = "https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg",
     showProfile = true,
-}) => {
+    userimg = "https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg",
+    onLogout = handleLogout,
+}: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
+    const modeClass = mode === "dark" ? "dark" : "";
 
+    // Set textColor dynamically based on mode
+    if (mode === "dark") {
+        textColor = "rgba(255,255,255, 0.9)";
+    }
     return (
         <SidebarContext.Provider
-            value={{ width, collapsewidth, themeColor, textColor, isCollapse }}
+            value={{ width, collapsewidth, themeColor, textColor, themeSecondaryColor, direction, isCollapse }}
         >
-            <ShadSidebar
-                className="border-r transition-all duration-300 flex flex-col"
-                style={{ width: computedWidth, color: textColor }}
-                collapsible="icon"
-            >
-                {children}
+            <div className={modeClass}>
+                <ShadSidebar
+                    dir={direction}
+                    style={{ width: computedWidth, color: textColor }}
+                    collapsible="icon"
+                    className="border-r border-border"
+                >
+                    {children}
 
-                {showProfile && (
-                    <SidebarFooter>
-                        <Profile
-                            userName={userName}
-                            designation={designation}
-                            userimg={userimg}
-                            isCollapse={isCollapse}
-                        />
-                    </SidebarFooter>
-                )}
-            </ShadSidebar>
+                    {showProfile && (
+                        <SidebarFooter>
+                            <Profile
+                                userName={userName}
+                                designation={designation}
+                                userimg={userimg}
+                                isCollapse={isCollapse}
+                                onLogout={onLogout}
+                            />
+                        </SidebarFooter>
+                    )}
+                </ShadSidebar>
+            </div>
         </SidebarContext.Provider>
     );
 };

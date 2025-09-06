@@ -74,37 +74,55 @@
 
 import React from "react";
 import { SidebarContext } from "./Sidebar";
+import Link from "./Links";
 
 
-export const Logo = React.forwardRef(
+type LogoProps = {
+    children?: React.ReactNode;
+    img?: string;
+    href?: string;
+    component?: React.ElementType;
+};
+
+export const Logo = (
     (
         {
             children,
             img = "https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg",
             href = "/",
             component
-        },
-        ref
+        }: LogoProps,
+
     ) => {
 
         const customizer = React.useContext(SidebarContext);
 
         return (
-            <a
-                href={href} component={component}
-                className={`flex items-center ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
-                    } whitespace-nowrap text-2xl px-6 py-4 my-1 transition-all duration-300`}
-            >
-                {img ? (
-                    <img
-                        src={img}
-                        alt="Logo"
-                        className="h-auto max-h-16 mr-2"
-                    />
-                ) : (
-                    <span className="text-gray-800">{children}</span>
-                )}
-            </a>
+            // <Link
+            //     href={href} component={component} to={href}
+            //     className={`flex items-center ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
+            //         } whitespace-nowrap text-2xl px-6 py-4 my-1 transition-all duration-300`}
+            // >
+
+            <div className={`whitespace-nowrap  line-clamp-1 px-5 py-2 block overflow-ellipsis ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"}`}>
+                <Link
+                    href={href} component={component} to={href}
+
+                >
+                    {img ? (
+
+                        <img
+                            src={img}
+                            alt="Logo"
+
+                        />
+
+                    ) : (
+                        <span className="text-gray-800">{children}</span>
+                    )}
+                </Link>
+            </div>
+
         );
     }
 );
