@@ -6,7 +6,7 @@ type MenuProps = {
     subHeading?: string;
 };
 
-export const MenuLabel = ({ children, subHeading = "menu" }: MenuProps) => {
+export const Menu = ({ children, subHeading = "menu" }: MenuProps) => {
     const customizer = useContext(SidebarContext);
 
     return (
@@ -21,11 +21,7 @@ export const MenuLabel = ({ children, subHeading = "menu" }: MenuProps) => {
                 {!customizer.isCollapse ? subHeading : "..."}
             </SidebarGroupLabel>
 
-
-
             <div className="space-y-1">{children}</div>
-
-
 
         </div>
 

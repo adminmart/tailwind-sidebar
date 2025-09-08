@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),
-      name: "Sidebar-ui",
+      name: "ReactTailwindSidebar",
       fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
