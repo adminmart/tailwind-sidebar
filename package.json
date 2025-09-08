@@ -1,14 +1,30 @@
 {
-  "name": "tailwind-sidebar-shadcn",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-tailwind-sidebar",
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+"./dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "author": "Adminmart Team",
+  "license": "MIT",
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -41,6 +57,7 @@
     "tw-animate-css": "^1.3.8",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.39.1",
-    "vite": "^7.1.2"
+    "vite": "^7.1.2",
+    "vite-plugin-dts": "^4.5.4"
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Sidebar as ShadSidebar, SidebarFooter } from "./ui/sidebar";
+import { Sidebar as ShadSidebar } from "./ui/sidebar";
 
 import { Profile } from "./UserProfile";
 
@@ -80,18 +80,18 @@ export const Sidebar = ({
                     collapsible="icon"
                     className="border-r border-border "
                 >
-                    {children}
 
+                    {children}
                     {showProfile && (
-                        <SidebarFooter>
-                            <Profile
-                                userName={userName}
-                                designation={designation}
-                                userimg={userimg}
-                                isCollapse={isCollapse}
-                                onLogout={onLogout}
-                            />
-                        </SidebarFooter>
+
+                        <Profile
+                            userName={userName}
+                            designation={designation}
+                            userimg={userimg}
+                            isCollapse={isCollapse}
+                            onLogout={onLogout}
+                        />
+
                     )}
                 </ShadSidebar>
             </div>

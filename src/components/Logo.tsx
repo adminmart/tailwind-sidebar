@@ -1,6 +1,7 @@
 import React from "react";
 import { SidebarContext } from "./Sidebar";
 import Link from "./Links";
+import { SidebarHeader } from "./ui/sidebar";
 
 type LogoProps = {
     children?: React.ReactNode;
@@ -18,22 +19,24 @@ export const Logo = ({
     const customizer = React.useContext(SidebarContext);
 
     return (
-        <div
-            className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1 px-5 py-2  overflow-ellipsis ${customizer.direction === "rtl" ? ' rtl:scale-x-[-1]' : ''}`}
-        >
-            <Link
-                href={href}
-                component={component}
-                to={href}
-                className={`w-[40px] flex ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
-                    }`}
+        <SidebarHeader>
+            <div
+                className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1 px-5 py-2  overflow-ellipsis ${customizer.direction === "rtl" ? ' rtl:scale-x-[-1]' : ''}`}
             >
-                {img ? (
-                    <img src={img} alt="Logo" style={{ maxWidth: "unset" }} />
-                ) : (
-                    <span className="text-gray-800">{children}</span>
-                )}
-            </Link>
-        </div>
+                <Link
+                    href={href}
+                    component={component}
+                    to={href}
+                    className={`w-[40px] flex ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
+                        }`}
+                >
+                    {img ? (
+                        <img src={img} alt="Logo" style={{ maxWidth: "unset" }} />
+                    ) : (
+                        <span className="text-gray-800">{children}</span>
+                    )}
+                </Link>
+            </div>
+        </SidebarHeader>
     );
 };

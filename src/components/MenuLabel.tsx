@@ -10,6 +10,9 @@ export const MenuLabel = ({ children, subHeading = "menu" }: MenuProps) => {
     const customizer = useContext(SidebarContext);
 
     return (
+
+
+
         <div className={`pt-2 ${customizer.isCollapse ? "px-2" : "px-4"}`}>
             <SidebarGroupLabel
                 className="text-xs font-bold leading-5 p-0"
@@ -17,7 +20,16 @@ export const MenuLabel = ({ children, subHeading = "menu" }: MenuProps) => {
             >
                 {!customizer.isCollapse ? subHeading : "..."}
             </SidebarGroupLabel>
+
+
+
             <div className="space-y-1">{children}</div>
+
+
+
         </div>
+
+
+
     );
 };

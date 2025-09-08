@@ -7,6 +7,7 @@ import {
 import { ChevronRight, ChevronDown, CircleDot } from "lucide-react";
 import { SidebarContext } from "./Sidebar";
 import clsx from "clsx";
+import { SidebarGroupContent, SidebarMenu, SidebarMenuItem } from "./ui/sidebar";
 
 type SubmenuProps = {
     children: React.ReactNode;
@@ -28,64 +29,70 @@ export function Submenu({
     const customizer = React.useContext(SidebarContext);
 
     return (
-        <div className="w-full">
-            <Collapsible
-                open={open}
-                onOpenChange={setOpen}
-                className="flex  flex-col px-3"
-            >
-                <CollapsibleTrigger asChild>
-                    <button
-                        disabled={disabled}
-                        onClick={() => setOpen(!open)}
-                        className={clsx(
-                            "flex items-center justify-between rounded-md  p-2.5 transition-colors ",
-                            borderRadius,
+        <SidebarGroupContent>
+            <SidebarMenu>
+                <SidebarMenuItem>
+                    <div className="w-full">
+                        <Collapsible
+                            open={open}
+                            onOpenChange={setOpen}
+                            className="flex  flex-col px-3"
+                        >
+                            <CollapsibleTrigger asChild>
+                                <button
+                                    disabled={disabled}
+                                    onClick={() => setOpen(!open)}
+                                    className={clsx(
+                                        "flex items-center justify-between rounded-md  p-2.5 transition-colors ",
+                                        borderRadius,
 
-                            {
-                                "cursor-not-allowed opacity-60 ": disabled,
-                                "cursor-pointer": !disabled,
-                                "justify-center px-3": customizer.isCollapse,
-                                "justify-between": !customizer.isCollapse,
-                            }
+                                        {
+                                            "cursor-not-allowed opacity-60 ": disabled,
+                                            "cursor-pointer": !disabled,
+                                            "justify-center px-3": customizer.isCollapse,
+                                            "justify-between": !customizer.isCollapse,
+                                        }
 
-                        )}
-                        style={{
-                            color: open ? "#fff" : customizer?.textColor,
-                            backgroundColor: open ? customizer?.themeColor : undefined,
-                        }}
-                    >
-                        {/* Icon + Title */}
-                        <div className="flex items-center gap-3 ">
-                            <span className="text-inherit">
-                                {icon ? icon : <CircleDot size={20} />}
-                            </span>
+                                    )}
+                                    style={{
+                                        color: open ? "#fff" : customizer?.textColor,
+                                        backgroundColor: open ? customizer?.themeColor : undefined,
+                                    }}
+                                >
+                                    {/* Icon + Title */}
+                                    <div className="flex items-center gap-3 ">
+                                        <span className="text-inherit">
+                                            {icon ? icon : <CircleDot size={20} />}
+                                        </span>
 
-                            {/* Title */}
-                            {!customizer?.isCollapse && (
-                                <span className={clsx(textFontSize, "truncate leading-tight")}>
-                                    {title}
-                                </span>
-                            )}
-                        </div>
+                                        {/* Title */}
+                                        {!customizer?.isCollapse && (
+                                            <span className={clsx(textFontSize, "truncate leading-tight")}>
+                                                {title}
+                                            </span>
+                                        )}
+                                    </div>
 
-                        {/* Chevron */}
-                        {!customizer?.isCollapse &&
-                            (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-                    </button>
-                </CollapsibleTrigger>
+                                    {/* Chevron */}
+                                    {!customizer?.isCollapse &&
+                                        (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
+                                </button>
+                            </CollapsibleTrigger>
 
-                {/* Submenu Items */}
+                            {/* Submenu Items */}
 
-                <CollapsibleContent
-                    className={clsx(
-                        "mt-1 flex flex-col space-y-1",
-                        customizer?.isCollapse && "items-center"
-                    )}
-                >
-                    {children}
-                </CollapsibleContent>
-            </Collapsible>
-        </div >
+                            <CollapsibleContent
+                                className={clsx(
+                                    "mt-1 flex flex-col space-y-1",
+                                    customizer?.isCollapse && "items-center"
+                                )}
+                            >
+                                {children}
+                            </CollapsibleContent>
+                        </Collapsible>
+                    </div >
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </SidebarGroupContent>
     );
 }
