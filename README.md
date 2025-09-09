@@ -1,6 +1,6 @@
-## React MUI Sidebar
+## React Tailwind Sidebar
 
-React MUI Sidebar helps to create side Navigation.
+React Tailwind Sidebar helps to create side Navigation.
 
 # Live Demo
 
