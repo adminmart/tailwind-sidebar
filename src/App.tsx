@@ -25,7 +25,7 @@ function App() {
             <Logo
               img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
               component={Link}
-              href="https://tailwind-admin.com"
+              href="/"
             >Adminmart</Logo>
             <SidebarContent>
               <SidebarGroup>

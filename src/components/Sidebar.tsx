@@ -23,9 +23,9 @@ type SidebarProps = {
 };
 
 export const SidebarContext = React.createContext({
-    width: "270px",
+    width: "260px",
     collapsewidth: "80px",
-    textColor: "#8D939D",
+    textColor: "#2b2b2b",
     isCollapse: false,
     themeColor: "#5d87ff",
     themeSecondaryColor: "#49beff",

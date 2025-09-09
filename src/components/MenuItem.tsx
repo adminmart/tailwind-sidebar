@@ -35,7 +35,7 @@ export const MenuItem = ({
     borderRadius = "rounded-md",
     disabled = false,
     badgeType = "filled",
-    link = "/",
+    link = "#",
     target = "",
     isSelected = false,
     className,

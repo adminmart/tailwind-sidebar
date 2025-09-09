@@ -6927,9 +6927,9 @@ const Mc = ({
     }
   ) })
 ] }) }) }), Ze = gt.createContext({
-  width: "270px",
+  width: "260px",
   collapsewidth: "80px",
-  textColor: "#8D939D",
+  textColor: "#2b2b2b",
   isCollapse: !1,
   themeColor: "#5d87ff",
   themeSecondaryColor: "#49beff",
@@ -7057,7 +7057,7 @@ const nu = ({
   borderRadius: l = "rounded-md",
   disabled: c = !1,
   badgeType: d = "filled",
-  link: f = "/",
+  link: f = "#",
   target: g = "",
   isSelected: h = !1,
   className: v
