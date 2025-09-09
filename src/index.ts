@@ -11,4 +11,5 @@ export {
   SidebarTrigger,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenu,
 } from "./components/ui/sidebar";

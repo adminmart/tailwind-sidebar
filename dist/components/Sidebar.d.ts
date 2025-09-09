@@ -14,6 +14,7 @@ type SidebarProps = {
     showProfile?: boolean;
     userimg?: string;
     onLogout?: () => void;
+    className?: string;
 };
 export declare const SidebarContext: React.Context<{
     width: string;
@@ -24,5 +25,5 @@ export declare const SidebarContext: React.Context<{
     themeSecondaryColor: string;
     direction: string;
 }>;
-export declare const Sidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, mode, direction, userName, designation, showProfile, userimg, onLogout, }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Sidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, mode, direction, userName, designation, showProfile, userimg, onLogout, className, }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
 export {};

@@ -1,5 +1,6 @@
 import { LogOut } from "lucide-react";
 import { SidebarFooter } from "./ui/sidebar";
+import clsx from "clsx";
 
 interface ProfileProps {
     userName?: string;
@@ -7,6 +8,7 @@ interface ProfileProps {
     userimg?: string;
     isCollapse?: boolean;
     onLogout?: () => void;
+    className?: string;
 }
 
 export const Profile = ({
@@ -15,6 +17,8 @@ export const Profile = ({
     userimg = "",
     isCollapse = false,
     onLogout,
+    className = "",
+
 }: ProfileProps) => {
     return (
         <>
@@ -22,7 +26,7 @@ export const Profile = ({
                 {isCollapse ? (
                     ""
                 ) : (
-                    <div className="flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20">
+                    <div className={clsx("flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20", className)}>
                         {/* Avatar */}
                         <img
                             src={userimg}
@@ -32,7 +36,7 @@ export const Profile = ({
 
                         {/* User Info */}
                         <div>
-                            <p className="text-xl font-medium">{userName}</p>
+                            <p className="text-lg font-medium">{userName}</p>
                             <p className="text-xs text-gray-400 ">{designation}</p>
                         </div>
 

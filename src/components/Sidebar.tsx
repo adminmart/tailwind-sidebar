@@ -2,6 +2,7 @@ import React from "react";
 import { Sidebar as ShadSidebar } from "./ui/sidebar";
 
 import { Profile } from "./UserProfile";
+import clsx from "clsx";
 
 type SidebarProps = {
     children: React.ReactNode;
@@ -18,6 +19,7 @@ type SidebarProps = {
     showProfile?: boolean;
     userimg?: string;
     onLogout?: () => void;
+    className?: string;
 };
 
 export const SidebarContext = React.createContext({
@@ -49,6 +51,7 @@ export const Sidebar = ({
     showProfile = true,
     userimg = "https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg",
     onLogout = handleLogout,
+    className = "",
 }: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
     const modeClass = mode === "dark" ? "dark" : "";
@@ -78,7 +81,7 @@ export const Sidebar = ({
                     width={width}
                     collapsewidth={collapsewidth}
                     collapsible="icon"
-                    className="border-r border-border "
+                    className={clsx("border-r border-border", className)}
                 >
                     {children}
                     {showProfile && (

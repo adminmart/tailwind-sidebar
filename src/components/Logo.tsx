@@ -12,7 +12,7 @@ type LogoProps = {
 
 export const Logo = ({
     children,
-    img = "https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg",
+    img = "https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png",
     href = "/",
     component,
 }: LogoProps) => {

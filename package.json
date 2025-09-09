@@ -23,8 +23,21 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+
   "author": "Adminmart Team",
   "license": "MIT",
+ "bugs": {
+    "url": "https://github.com/adminmart/tailwind-sidebar/issues"
+  },
+   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adminmart/tailwind-sidebar.git"
+  },
+ "keywords": [
+    "tailwind-sidebar",
+    "sidebar",
+    "react","nextjs"
+  ],
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",

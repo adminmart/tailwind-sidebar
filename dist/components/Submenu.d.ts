@@ -6,6 +6,7 @@ type SubmenuProps = {
     borderRadius?: string;
     textFontSize?: string;
     disabled?: boolean;
+    className?: string;
 };
-export declare function Submenu({ title, children, icon, textFontSize, disabled, borderRadius, }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
+export declare function Submenu({ title, children, icon, textFontSize, disabled, borderRadius, className, }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
 export {};

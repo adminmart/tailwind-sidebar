@@ -20,17 +20,15 @@ function App() {
     <>
       <BrowserRouter>
         <SidebarProvider>
-
           <SidebarTrigger />
-          <Sidebar >
+          <Sidebar>
             <Logo
-              img="https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg"
+              img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
               component={Link}
               href="https://tailwind-admin.com"
-            >TailwindAdmin</Logo>
+            >Adminmart</Logo>
             <SidebarContent>
               <SidebarGroup>
-
                 <Menu subHeading="HOME" />
                 <SidebarMenu>
                   <SidebarMenuItem>

@@ -16,6 +16,7 @@ type SubmenuProps = {
     borderRadius?: string;
     textFontSize?: string;
     disabled?: boolean;
+    className?: string;
 };
 export function Submenu({
     title,
@@ -24,13 +25,14 @@ export function Submenu({
     textFontSize = "text-sm",
     disabled = false,
     borderRadius = "rounded-md",
+    className = "",
 }: SubmenuProps) {
     const [open, setOpen] = React.useState(false);
     const customizer = React.useContext(SidebarContext);
 
     return (
 
-        <div className="w-full">
+        <div className={clsx("w-full", className)}>
             <Collapsible
                 open={open}
                 onOpenChange={setOpen}
@@ -89,82 +91,6 @@ export function Submenu({
                 </CollapsibleContent>
             </Collapsible>
         </div >
-        // <div className="w-full">
-        //     <Collapsible open={open} onOpenChange={setOpen} className="flex flex-col">
-        //         <CollapsibleTrigger asChild>
-        //             <button
-        //                 disabled={disabled}
-        //                 onClick={() => setOpen(!open)}
-        //                 className={clsx(
-        //                     "group flex w-full items-center justify-between p-2.5 transition-colors duration-200",
-        //                     borderRadius,
-        //                     {
-        //                         "opacity-60 cursor-not-allowed": disabled,
-        //                         "cursor-pointer": !disabled,
-        //                         "justify-center": customizer?.isCollapse,
-        //                         "bg-[var(--active-bg)]": open,
-        //                     }
-        //                 )}
-        //                 style={{
-        //                     color: open ? "#fff" : customizer?.textColor,
-        //                     backgroundColor: open ? customizer?.themeColor : undefined,
 
-        //                 }}
-        //             >
-        //                 <div className="flex items-center gap-3">
-        //                     <span
-        //                         className="text-inherit"
-        //                         style={{
-        //                             color: open ? "#fff" : customizer?.textColor,
-        //                         }}
-        //                     >
-        //                         {icon ? icon : <CircleDot size={20} />}
-        //                     </span>
-
-        //                     {!customizer?.isCollapse && (
-        //                         <span
-        //                             className={clsx(
-        //                                 textFontSize,
-        //                                 "leading-tight truncate text-inherit"
-        //                             )}
-        //                         >
-        //                             {title}
-        //                         </span>
-        //                     )}
-        //                 </div>
-
-        //                 {/* Chevron icon */}
-        //                 {!customizer?.isCollapse &&
-        //                     (open ? (
-        //                         <ChevronDown
-        //                             size={16}
-        //                             className="text-inherit"
-        //                             style={{
-        //                                 color: open ? "#fff" : customizer?.textColor,
-        //                             }}
-        //                         />
-        //                     ) : (
-        //                         <ChevronRight
-        //                             size={16}
-        //                             className="text-inherit"
-        //                             style={{
-        //                                 color: open ? "#fff" : customizer?.textColor,
-        //                             }}
-        //                         />
-        //                     ))}
-        //             </button>
-        //         </CollapsibleTrigger>
-
-        //         <CollapsibleContent
-        //             className={clsx(
-        //                 "flex flex-col space-y-1 transition-all",
-        //                 customizer?.isCollapse && "items-center",
-        //                 "mt-1"
-        //             )}
-        //         >
-        //             {children}
-        //         </CollapsibleContent>
-        //     </Collapsible>
-        // </div>
     );
 }

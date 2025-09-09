@@ -14,6 +14,7 @@ interface MenuItemProps {
     link?: string;
     target?: string;
     isSelected?: boolean;
+    className?: string;
 }
-export declare const MenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
+export declare const MenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, className, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
 export {};
