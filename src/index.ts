@@ -9,4 +9,6 @@ export {
   SidebarContent,
   SidebarGroup,
   SidebarTrigger,
+  SidebarMenuButton,
+  SidebarMenuItem,
 } from "./components/ui/sidebar";
