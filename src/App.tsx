@@ -12,7 +12,7 @@ import {
   Calendar,
   MessageCircle,
   ShieldBan,
-  Command, GalleryVertical
+  Command, Layers2
 } from "lucide-react";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <SidebarProvider>
 
           <SidebarTrigger />
-          <Sidebar mode="dark">
+          <Sidebar >
             <Logo
               img="https://tailwindadmin-nextjs-main.vercel.app/_next/static/media/dark-logo.7f45c7e7.svg"
               component={Link}
@@ -112,7 +112,7 @@ function App() {
 
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild>
-                      <MenuItem badge={true} badgeTextColor="text-primary" badgeContent={"outline"} badgeType={"outlined"} icon={<GalleryVertical size={20} />}>
+                      <MenuItem badge={true} badgeContent={"outline"} badgeType={"outlined"} icon={<Layers2 size={20} />}>
                         Outline
                       </MenuItem>
                     </SidebarMenuButton>

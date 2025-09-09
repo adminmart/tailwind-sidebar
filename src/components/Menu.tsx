@@ -11,14 +11,15 @@ export const Menu = ({ children, subHeading = "menu" }: MenuProps) => {
 
     return (
 
-        <div className={`${customizer.isCollapse ? "px-2" : "px-3"} pt-2`}>
-            {/* Subheader */}
-            <div
-                className={`text-xs font-bold leading-5 py-1`} style={{ color: customizer.textColor }}
-            >
-                {!customizer.isCollapse ? subHeading : "..."}
-            </div>
-
+        <div >
+            <SidebarGroupLabel>
+                {/* Subheader */}
+                <div
+                    className={`text-xs font-bold leading-5 py-1`} style={{ color: customizer.textColor }}
+                >
+                    {!customizer.isCollapse ? subHeading : "..."}
+                </div>
+            </SidebarGroupLabel>
             {/* List of items */}
             <div className="space-y-1">
                 {children}

@@ -188,7 +188,7 @@ export const MenuItem = ({
     component,
     badge = false,
     badgeColor = "bg-primary",
-    badgeTextColor = "text-white",
+    badgeTextColor = "",
     badgeContent = "New",
     textFontSize = "text-sm",
     borderRadius = "rounded-md",
@@ -216,7 +216,7 @@ export const MenuItem = ({
                 )}
                 style={{
                     backgroundColor: isSelected ? customizer.themeColor : undefined,
-                    color: !isSelected ? customizer.textColor : undefined,
+                    color: !isSelected ? customizer.textColor : 'white',
                     justifyContent: customizer?.direction === "rtl" ? "flex-end" : "flex-start",
                 }}
             >
@@ -250,7 +250,7 @@ export const MenuItem = ({
                                             ? badgeColor
                                             : "",
                                     badgeTextColor ??
-                                    (badgeType === "outlined" ? "text-primary" : "text-white")
+                                    (badgeType === "outlined" ? "text-primary" : "")
                                 )}
                                 style={{
                                     backgroundColor:
@@ -258,8 +258,8 @@ export const MenuItem = ({
                                             ? customizer.themeSecondaryColor
                                             : undefined,
                                     color:
-                                        badgeColor === "bg-secondary" && badgeTextColor === undefined
-                                            ? "#fff"
+                                        badgeColor === "bg-secondary" && badgeTextColor === undefined && (badgeType === "outlined" || badgeColor === undefined)
+                                            ? customizer.textColor
                                             : undefined,
                                 }}
                             >
