@@ -3,4 +3,10 @@ export { Logo } from "./components/Logo";
 export { Menu } from "./components/Menu";
 export { MenuItem } from "./components/MenuItem";
 export { Submenu } from "./components/Submenu";
-export { SidebarProvider, useSidebar } from "./components/ui/sidebar";
+export {
+  SidebarProvider,
+  useSidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarTrigger,
+} from "./components/ui/sidebar";

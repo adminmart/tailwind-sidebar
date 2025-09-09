@@ -1,5 +1,4 @@
 import { LogOut } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { SidebarFooter } from "./ui/sidebar";
 
 interface ProfileProps {
@@ -23,43 +22,33 @@ export const Profile = ({
                 {isCollapse ? (
                     ""
                 ) : (
-                    <div className={` my-3 mx-3`}>
-                        <div
-                            className={` py-4 px-4 bg-secondary/20 rounded-md overflow-hidden`}
-                        >
-                            <div className="flex justify-between items-center">
-                                <div className="flex gap-4 items-center">
-                                    <img
-                                        src={userimg}
-                                        alt="profile-image"
-                                        width={40}
-                                        height={40}
-                                        className="rounded-full"
-                                    />
-                                    <div>
-                                        <h3 className="text-base font-medium dark:text-white">
-                                            {" "}
-                                            {userName}
-                                        </h3>
-                                        <p className="text-xs font-normal text-muted dark:text-darklink">
-                                            {" "}
-                                            {designation}
-                                        </p>
-                                    </div>
-                                </div>
-                                <Tooltip>
-                                    <TooltipTrigger>
-                                        <LogOut
-                                            onClick={onLogout}
-                                            size={18}
-                                            className=" text-primary cursor-pointer"
-                                        />
-                                    </TooltipTrigger>
-                                    <TooltipContent>
-                                        <p>Logout</p>
-                                    </TooltipContent>
-                                </Tooltip>
-                            </div>
+                    <div className="flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20">
+                        {/* Avatar */}
+                        <img
+                            src={userimg}
+                            alt="profile-image"
+                            className="w-10 h-10 rounded-full object-cover"
+                        />
+
+                        {/* User Info */}
+                        <div>
+                            <p className="text-xl font-medium">{userName}</p>
+                            <p className="text-xs text-gray-400 ">{designation}</p>
+                        </div>
+
+                        {/* Logout Icon Button */}
+                        <div className="ml-auto">
+                            <button
+                                onClick={onLogout}
+                                className="p-2"
+                            >
+                                <LogOut
+                                    size={18}
+                                    className=" text-primary cursor-pointer"
+                                />
+                            </button>
+
+
                         </div>
                     </div>
                 )}

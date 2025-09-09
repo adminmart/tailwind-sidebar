@@ -80,10 +80,8 @@ export const Sidebar = ({
                     collapsible="icon"
                     className="border-r border-border "
                 >
-
                     {children}
                     {showProfile && (
-
                         <Profile
                             userName={userName}
                             designation={designation}
