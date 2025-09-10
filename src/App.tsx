@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AMSidebar>
+        <AMSidebar isCollapse={false}>
           <AMLogo
             img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
             component={Link}
@@ -34,9 +34,10 @@ function App() {
             icon={<Home size={20} />}
             link="/"
             badge={true}
+            badgeType="default"
             badgeColor={"bg-secondary"}
             isSelected={true}
-            badgeType="secondary"
+
           >
             Modern
           </AMMenuItem>

@@ -21,7 +21,7 @@ export const AMLogo = ({
     return (
         <SidebarHeader>
             <div
-                className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1 px-5 py-2  overflow-ellipsis ${customizer.direction === "rtl" ? ' rtl:scale-x-[-1]' : ''}`}
+                className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1  py-2  overflow-ellipsis ${customizer.direction === "rtl" ? ' rtl:scale-x-[-1]' : ''}`}
             >
                 <Link
                     href={href}

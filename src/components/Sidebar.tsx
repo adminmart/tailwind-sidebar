@@ -21,6 +21,9 @@ type SidebarProps = {
     onLogout?: () => void;
     ClassName?: string;
     animation?: boolean;
+    side?: "left" | "right"
+    variant?: "sidebar" | "floating" | "inset"
+    collapsible?: "offcanvas" | "icon" | "none"
 };
 
 export const SidebarContext = React.createContext({
@@ -55,6 +58,9 @@ export const AMSidebar = ({
     onLogout = handleLogout,
     animation = false,
     ClassName = "",
+    side = "left",
+    variant = "sidebar",
+    collapsible = "icon",
 }: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
     const modeClass = mode === "dark" ? "dark" : "";
@@ -86,7 +92,9 @@ export const AMSidebar = ({
                         isCollapse={isCollapse}
                         width={width}
                         collapsewidth={collapsewidth}
-                        collapsible="icon"
+                        collapsible={collapsible}
+                        variant={variant}
+                        side={side}
                         className={clsx("border-r border-border", ClassName)}
                     >
                         <SidebarContent>
@@ -107,6 +115,6 @@ export const AMSidebar = ({
                     </ShadSidebar>
                 </div>
             </SidebarProvider>
-        </SidebarContext.Provider>
+        </SidebarContext.Provider >
     );
 };

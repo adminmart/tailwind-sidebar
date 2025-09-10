@@ -1,6 +1,8 @@
 import { LogOut } from "lucide-react";
 import { SidebarFooter } from "./ui/sidebar";
 import clsx from "clsx";
+import { SidebarContext } from "./Sidebar";
+import { useContext } from "react";
 
 interface ProfileProps {
     userName?: string;
@@ -20,13 +22,17 @@ export const AMProfile = ({
     ClassName = "",
 
 }: ProfileProps) => {
+    const customizer = useContext(SidebarContext);
+
     return (
         <>
             <SidebarFooter>
                 {isCollapse ? (
                     ""
                 ) : (
-                    <div className={clsx("flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20", ClassName)}>
+                    <div className={clsx(`flex items-center gap-3  p-4 rounded-md `, ClassName)}
+                        style={{ backgroundColor: customizer.themeSecondaryColor + 20 }}
+                    >
                         {/* Avatar */}
                         <img
                             src={userimg}
@@ -60,3 +66,5 @@ export const AMProfile = ({
         </>
     );
 };
+
+// m-5

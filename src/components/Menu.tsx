@@ -17,13 +17,14 @@ export const AMMenu = ({ children, subHeading = "menu", ClassName }: MenuProps) 
             >
                 {/* Subheader */}
                 <div
-                    className={`text-xs font-bold leading-5 py-1`} style={{ color: customizer.textColor }}
+                    style={{ color: customizer.textColor }}
                 >
                     {!customizer.isCollapse ? subHeading : "..."}
                 </div>
             </SidebarGroupLabel>
-            {/* List of items */}
-            <div className="space-y-1">
+
+
+            <div>
                 {children}
             </div>
         </div>
