@@ -10,7 +10,7 @@ type LogoProps = {
     component?: React.ElementType;
 };
 
-export const Logo = ({
+export const AMLogo = ({
     children,
     img = "https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png",
     href = "/",

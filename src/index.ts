@@ -1,15 +1,5 @@
-export { Sidebar } from "./components/Sidebar";
-export { Logo } from "./components/Logo";
-export { Menu } from "./components/Menu";
-export { MenuItem } from "./components/MenuItem";
-export { Submenu } from "./components/Submenu";
-export {
-  SidebarProvider,
-  useSidebar,
-  SidebarContent,
-  SidebarGroup,
-  SidebarTrigger,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenu,
-} from "./components/ui/sidebar";
+export { AMSidebar } from "./components/Sidebar";
+export { AMLogo } from "./components/Logo";
+export { AMMenu } from "./components/Menu";
+export { AMMenuItem } from "./components/MenuItem";
+export { AMSubmenu } from "./components/Submenu";

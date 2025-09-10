@@ -1,7 +1,7 @@
 type MenuProps = {
     children?: React.ReactNode;
     subHeading?: string;
-    className?: string;
+    ClassName?: string;
 };
-export declare const Menu: ({ children, subHeading, className }: MenuProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMMenu: ({ children, subHeading, ClassName }: MenuProps) => import("react/jsx-runtime").JSX.Element;
 export {};

@@ -4,16 +4,16 @@ import { SidebarGroupLabel } from "./ui/sidebar";
 type MenuProps = {
     children?: React.ReactNode;
     subHeading?: string;
-    className?: string;
+    ClassName?: string;
 };
 
-export const Menu = ({ children, subHeading = "menu", className }: MenuProps) => {
+export const AMMenu = ({ children, subHeading = "menu", ClassName }: MenuProps) => {
     const customizer = useContext(SidebarContext);
 
     return (
 
-        <div >
-            <SidebarGroupLabel className={className}
+        <div>
+            <SidebarGroupLabel className={ClassName}
             >
                 {/* Subheader */}
                 <div

@@ -1,7 +1,7 @@
 import React from "react";
-import { Sidebar as ShadSidebar } from "./ui/sidebar";
+import { Sidebar as ShadSidebar, SidebarContent, SidebarGroup, SidebarProvider, SidebarTrigger } from "./ui/sidebar";
 
-import { Profile } from "./UserProfile";
+import { AMProfile } from "./UserProfile";
 import clsx from "clsx";
 
 type SidebarProps = {
@@ -19,7 +19,8 @@ type SidebarProps = {
     showProfile?: boolean;
     userimg?: string;
     onLogout?: () => void;
-    className?: string;
+    ClassName?: string;
+    animation?: boolean;
 };
 
 export const SidebarContext = React.createContext({
@@ -30,13 +31,14 @@ export const SidebarContext = React.createContext({
     themeColor: "#5d87ff",
     themeSecondaryColor: "#49beff",
     direction: "ltr",
+    animation: false,
 });
 
 let handleLogout = () => {
     alert("Logout Successfully");
 };
 
-export const Sidebar = ({
+export const AMSidebar = ({
     children,
     width = "270px",
     collapsewidth = "80px",
@@ -51,7 +53,8 @@ export const Sidebar = ({
     showProfile = true,
     userimg = "https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg",
     onLogout = handleLogout,
-    className = "",
+    animation = false,
+    ClassName = "",
 }: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
     const modeClass = mode === "dark" ? "dark" : "";
@@ -71,31 +74,39 @@ export const Sidebar = ({
                 themeSecondaryColor,
                 direction,
                 isCollapse,
+                animation,
             }}
         >
-            <div className={modeClass}>
-                <ShadSidebar
-                    dir={direction}
-                    style={{ width: computedWidth, color: textColor }}
-                    isCollapse={isCollapse}
-                    width={width}
-                    collapsewidth={collapsewidth}
-                    collapsible="icon"
-                    className={clsx("border-r border-border", className)}
-                >
-                    {children}
-                    {showProfile && (
-                        <Profile
-                            userName={userName}
-                            designation={designation}
-                            userimg={userimg}
-                            isCollapse={isCollapse}
-                            onLogout={onLogout}
-                        />
+            <SidebarProvider>
+                <SidebarTrigger />
+                <div className={modeClass}>
+                    <ShadSidebar
+                        dir={direction}
+                        style={{ width: computedWidth, color: textColor, }}
+                        isCollapse={isCollapse}
+                        width={width}
+                        collapsewidth={collapsewidth}
+                        collapsible="icon"
+                        className={clsx("border-r border-border", ClassName)}
+                    >
+                        <SidebarContent>
+                            <SidebarGroup>
+                                {children}
+                            </SidebarGroup>
+                        </SidebarContent>
+                        {showProfile && (
+                            <AMProfile
+                                userName={userName}
+                                designation={designation}
+                                userimg={userimg}
+                                isCollapse={isCollapse}
+                                onLogout={onLogout}
+                            />
 
-                    )}
-                </ShadSidebar>
-            </div>
+                        )}
+                    </ShadSidebar>
+                </div>
+            </SidebarProvider>
         </SidebarContext.Provider>
     );
 };

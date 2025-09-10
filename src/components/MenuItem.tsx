@@ -4,6 +4,8 @@ import { SidebarContext } from "./Sidebar";
 import Links from "./Links";
 import { CircleDot } from "lucide-react";
 import { cn } from "../lib/utils";
+import { Badge } from "./ui/badge"
+import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
 interface MenuItemProps {
     children: React.ReactNode;
@@ -16,14 +18,16 @@ interface MenuItemProps {
     textFontSize?: string;
     borderRadius?: string;
     disabled?: boolean;
-    badgeType?: "filled" | "outlined";
+    badgeType?: "default" | "outline" | "secondary" | "destructive";
     link?: string;
     target?: string;
     isSelected?: boolean;
-    className?: string;
+    ClassName?: string;
+    animation?: boolean;
+
 }
 
-export const MenuItem = ({
+export const AMMenuItem = ({
     children,
     icon,
     component,
@@ -34,11 +38,14 @@ export const MenuItem = ({
     textFontSize = "text-sm",
     borderRadius = "rounded-md",
     disabled = false,
-    badgeType = "filled",
+    badgeType = "default",
     link = "#",
     target = "",
     isSelected = false,
-    className,
+    ClassName = "",
+
+
+
 }: MenuItemProps) => {
     const customizer = React.useContext(SidebarContext);
     const isCollapse = customizer?.isCollapse;
@@ -46,75 +53,76 @@ export const MenuItem = ({
     return (
 
 
-        <Links to={link} component={component} target={target}>
-            <div
-                className={cn(
-                    "flex items-center gap-3 w-full py-2.5 px-3 whitespace-nowrap mb-0.5 transition-colors duration-200 hover:bg-primary/20",
-                    borderRadius,
-                    disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer",
-                    isSelected
-                        ? "bg-primary text-white"
-                        : "text-muted-foreground bg-transparent",
-                    className
-                )}
 
-                style={{
-                    backgroundColor: isSelected ? customizer.themeColor : undefined,
-                    color: !isSelected ? customizer.textColor : 'white',
-                    justifyContent: customizer?.direction === "rtl" ? "flex-end" : "flex-start",
-                }}
-            >
-                {/* Icon */}
-                <div
-                    className={cn(
-                        "flex items-center justify-center",
-                        !isCollapse && "min-w-[20px]"
-                    )}
-                    style={{
-                        color: isSelected ? "#fff" : customizer.textColor,
-                    }}
-                >
-                    {icon ?? <CircleDot size={18} />}
-                </div>
-
-                {/* Text + Badge */}
-                {!isCollapse && (
-                    <div className="flex items-center justify-between w-full">
-                        <span className={cn(textFontSize, "leading-tight truncate")}>
-                            {children}
-                        </span>
-
-                        {badge && (
-                            <span
+        <SidebarGroupContent>
+            <SidebarMenu>
+                <SidebarMenuItem>
+                    <SidebarMenuButton asChild>
+                        <Links to={link} component={component} target={target}>
+                            <div
                                 className={cn(
-                                    "ml-auto px-2 py-0.5 rounded text-xs font-semibold",
-                                    badgeType === "outlined"
-                                        ? "border border-border bg-transparent"
-                                        : badgeColor !== "bg-secondary"
-                                            ? badgeColor
-                                            : "",
-                                    badgeTextColor ??
-                                    (badgeType === "outlined" ? "text-primary" : "")
+                                    "flex items-center gap-3 w-full py-2.5 px-3 whitespace-nowrap mb-0.5  ",
+                                    customizer.animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
+                                    borderRadius,
+                                    disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer",
+                                    isSelected
+                                        ? "bg-primary text-white "
+                                        : `text-${customizer.textColor} bg-transparent hover:bg-primary/20 `,
+                                    ClassName
                                 )}
                                 style={{
-                                    backgroundColor:
-                                        badgeColor === "bg-secondary"
-                                            ? customizer.themeSecondaryColor
-                                            : undefined,
-                                    color:
-                                        badgeColor === "bg-secondary" && badgeTextColor === undefined && (badgeType === "outlined" || badgeColor === undefined)
-                                            ? customizer.textColor
-                                            : undefined,
+                                    backgroundColor: isSelected ? customizer.themeColor : undefined,
+                                    color: isSelected ? 'white' : customizer.textColor,
+                                    justifyContent: customizer?.direction === "rtl" ? "flex-end" : "flex-start",
                                 }}
                             >
-                                {badgeContent}
-                            </span>
-                        )}
-                    </div>
-                )}
-            </div>
-        </Links>
+                                {/* Icon */}
+                                <div
+                                    className={cn(
+                                        "flex items-center justify-center transition-colors duration-200",
+                                        !isCollapse && "min-w-[20px]",
 
+                                    )}
+                                    style={{
+                                        color: isSelected ? "#fff" : customizer.textColor,
+                                    }}
+                                >
+                                    {icon ?? <CircleDot size={18} />}
+                                </div>
+
+                                {/* Text + Badge */}
+                                {!isCollapse && (
+                                    <div className="flex items-center justify-between w-full ">
+                                        <span className={cn(textFontSize, "leading-tight truncate")}>
+                                            {children}
+                                        </span>
+
+                                        {badge && (
+                                            <Badge
+                                                variant={badgeType}
+                                                className={cn(
+                                                    badgeType !== "outline"
+                                                        ? badgeColor
+                                                        : isSelected
+                                                            ? "bg-white"
+                                                            : "bg-transparent",
+                                                    badgeType !== "outline" ? badgeTextColor : "text-primary",
+                                                )}
+                                            >
+                                                {badgeContent}
+                                            </Badge>
+
+
+
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+                        </Links>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+            </SidebarMenu>
+        </SidebarGroupContent>
     );
 };
 

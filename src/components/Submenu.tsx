@@ -7,6 +7,7 @@ import {
 import { ChevronRight, ChevronDown, CircleDot } from "lucide-react";
 import { SidebarContext } from "./Sidebar";
 import clsx from "clsx";
+import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
 
 type SubmenuProps = {
@@ -16,36 +17,39 @@ type SubmenuProps = {
     borderRadius?: string;
     textFontSize?: string;
     disabled?: boolean;
-    className?: string;
+    ClassName?: string;
+
 };
-export function Submenu({
+export function AMSubmenu({
     title,
     children,
     icon,
     textFontSize = "text-sm",
     disabled = false,
     borderRadius = "rounded-md",
-    className = "",
+    ClassName = ''
+
 }: SubmenuProps) {
     const [open, setOpen] = React.useState(false);
     const customizer = React.useContext(SidebarContext);
 
     return (
 
-        <div className={clsx("w-full", className)}>
+        <div className={clsx("w-full", ClassName)}>
             <Collapsible
                 open={open}
                 onOpenChange={setOpen}
-                className="flex  flex-col"
+                className="flex flex-col"
             >
                 <CollapsibleTrigger asChild>
+
                     <button
                         disabled={disabled}
                         onClick={() => setOpen(!open)}
                         className={clsx(
-                            "flex items-center justify-between rounded-md  p-2.5 transition-colors ",
+                            "flex items-center justify-between rounded-md   hover:bg-primary/20  p-2.5",
                             borderRadius,
-
+                            customizer.animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
                             {
                                 "cursor-not-allowed opacity-60 ": disabled,
                                 "cursor-pointer": !disabled,
@@ -77,6 +81,7 @@ export function Submenu({
                         {!customizer?.isCollapse &&
                             (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
                     </button>
+
                 </CollapsibleTrigger>
 
                 {/* Submenu Items */}
@@ -84,10 +89,24 @@ export function Submenu({
                 <CollapsibleContent
                     className={clsx(
                         "mt-1 flex flex-col space-y-1",
-                        customizer?.isCollapse && "items-center"
+                        customizer?.isCollapse && "items-center",
+
                     )}
                 >
-                    {children}
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            {
+                                // Render each child inside its own SidebarMenuItem
+                                React.Children.map(children, (child, index) => (
+                                    <SidebarMenuItem key={index}>
+                                        <SidebarMenuButton asChild>
+                                            {child}
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                ))
+                            }
+                        </SidebarMenu>
+                    </SidebarGroupContent>
                 </CollapsibleContent>
             </Collapsible>
         </div >

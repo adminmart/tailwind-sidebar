@@ -8,16 +8,16 @@ interface ProfileProps {
     userimg?: string;
     isCollapse?: boolean;
     onLogout?: () => void;
-    className?: string;
+    ClassName?: string;
 }
 
-export const Profile = ({
+export const AMProfile = ({
     userName = "",
     designation = "",
     userimg = "",
     isCollapse = false,
     onLogout,
-    className = "",
+    ClassName = "",
 
 }: ProfileProps) => {
     return (
@@ -26,7 +26,7 @@ export const Profile = ({
                 {isCollapse ? (
                     ""
                 ) : (
-                    <div className={clsx("flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20", className)}>
+                    <div className={clsx("flex items-center gap-3 m-5 p-4 rounded-md bg-secondary/20", ClassName)}>
                         {/* Avatar */}
                         <img
                             src={userimg}

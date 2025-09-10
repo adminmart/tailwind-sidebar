@@ -10,11 +10,12 @@ interface MenuItemProps {
     textFontSize?: string;
     borderRadius?: string;
     disabled?: boolean;
-    badgeType?: "filled" | "outlined";
+    badgeType?: "default" | "outline" | "secondary" | "destructive";
     link?: string;
     target?: string;
     isSelected?: boolean;
-    className?: string;
+    ClassName?: string;
+    animation?: boolean;
 }
-export declare const MenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, className, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMMenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, ClassName, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
 export {};

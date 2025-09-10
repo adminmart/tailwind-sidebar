@@ -5,5 +5,5 @@ type LogoProps = {
     href?: string;
     component?: React.ElementType;
 };
-export declare const Logo: ({ children, img, href, component, }: LogoProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMLogo: ({ children, img, href, component, }: LogoProps) => import("react/jsx-runtime").JSX.Element;
 export {};

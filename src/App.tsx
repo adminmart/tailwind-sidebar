@@ -1,10 +1,9 @@
 import { BrowserRouter, Link } from "react-router-dom";
-import { SidebarContent, SidebarGroup, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, SidebarTrigger } from "./components/ui/sidebar";
-import { Menu } from "./components/Menu";
-import { Sidebar } from "./components/Sidebar";
-import { MenuItem } from "./components/MenuItem";
-import { Submenu } from "./components/Submenu";
-import { Logo } from "./components/Logo";
+import { AMMenu } from "./components/Menu";
+import { AMSidebar } from "./components/Sidebar";
+import { AMMenuItem } from "./components/MenuItem";
+import { AMSubmenu } from "./components/Submenu";
+import { AMLogo } from "./components/Logo";
 import {
   Home,
   ShoppingCart,
@@ -12,124 +11,79 @@ import {
   Calendar,
   MessageCircle,
   ShieldBan,
-  Command, Layers2
+  Command,
+  Layers2,
 } from "lucide-react";
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <SidebarProvider>
-          <SidebarTrigger />
-          <Sidebar>
-            <Logo
-              img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
-              component={Link}
-              href="/"
-            >Adminmart</Logo>
-            <SidebarContent>
-              <SidebarGroup>
-                <Menu subHeading="HOME" />
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem
-                        icon={<Home size={20} />}
-                        link="/"
-                        badge={true}
-                        badgeColor={"bg-secondary"}
-                        isSelected={true}
-                      >
-                        Modern
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+        <AMSidebar>
+          <AMLogo
+            img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
+            component={Link}
+            href="/"
+          >
+            Adminmart
+          </AMLogo>
 
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem icon={<ShoppingCart size={20} />} link="#">
-                        eCommerce
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+          <AMMenu subHeading="HOME" />
 
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem icon={<BarChart2 size={20} />} link="#">
-                        Analytical
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+          <AMMenuItem
+            icon={<Home size={20} />}
+            link="/"
+            badge={true}
+            badgeColor={"bg-secondary"}
+            isSelected={true}
+            badgeType="secondary"
+          >
+            Modern
+          </AMMenuItem>
 
-                </SidebarMenu>
-              </SidebarGroup>
+          <AMMenuItem icon={<ShoppingCart size={20} />} link="#">
+            eCommerce
+          </AMMenuItem>
 
-              <SidebarGroup>
-                <Menu subHeading="APPS" />
+          <AMMenuItem icon={<BarChart2 size={20} />} link="#">
+            Analytical
+          </AMMenuItem>
 
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem icon={<MessageCircle size={20} />} link="#">
-                        Chat
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+          <AMMenu subHeading="APPS" />
 
+          <AMMenuItem icon={<MessageCircle size={20} />} link="#">
+            Chat
+          </AMMenuItem>
 
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem icon={<Calendar size={20} />} link="#">
-                        Calendar
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
+          <AMMenuItem icon={<Calendar size={20} />} link="#">
+            Calendar
+          </AMMenuItem>
 
+          <AMMenu subHeading="OTHER" />
 
-                </SidebarMenu>
-              </SidebarGroup>
+          <AMSubmenu title="Menu Level" icon={<Command size={20} />}>
+            <AMMenuItem>Level 1.1</AMMenuItem>
+            <AMMenuItem>Level 1.2</AMMenuItem>
 
+            <AMSubmenu title="Level 2" icon={<Command size={20} />}>
+              <AMMenuItem>Level 2.1</AMMenuItem>
+              <AMMenuItem>Level 2.2</AMMenuItem>
+            </AMSubmenu>
+          </AMSubmenu>
 
-              <SidebarGroup>
+          <AMMenuItem
+            badge={true}
+            badgeContent={"outline"}
+            badgeType="outline"
+            icon={<Layers2 size={20} />}
+          >
+            Outline
+          </AMMenuItem>
 
-                <Menu subHeading="OTHER" />
-                <SidebarMenu>
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <Submenu title="Menu Level" icon={<Command size={20} />}>
-                        <MenuItem>Level 1.1</MenuItem>
-                        <MenuItem>Level 1.2</MenuItem>
-
-                        <Submenu title="Level 2" icon={<Command size={20} />}>
-                          <MenuItem>Level 2.1</MenuItem>
-                          <MenuItem>Level 2.2</MenuItem>
-                        </Submenu>
-                      </Submenu>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem badge={true} badgeContent={"outline"} badgeType={"outlined"} icon={<Layers2 size={20} />}>
-                        Outline
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-
-                  <SidebarMenuItem>
-                    <SidebarMenuButton asChild>
-                      <MenuItem disabled={true} icon={<ShieldBan size={20} />}>
-                        Disabled
-                      </MenuItem>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-
-                </SidebarMenu>
-              </SidebarGroup>
-            </SidebarContent>
-          </Sidebar>
-
-        </SidebarProvider>
+          <AMMenuItem disabled={true} icon={<ShieldBan size={20} />}>
+            Disabled
+          </AMMenuItem>
+        </AMSidebar>
       </BrowserRouter>
     </>
   );

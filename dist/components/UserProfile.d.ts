@@ -4,7 +4,7 @@ interface ProfileProps {
     userimg?: string;
     isCollapse?: boolean;
     onLogout?: () => void;
-    className?: string;
+    ClassName?: string;
 }
-export declare const Profile: ({ userName, designation, userimg, isCollapse, onLogout, className, }: ProfileProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMProfile: ({ userName, designation, userimg, isCollapse, onLogout, ClassName, }: ProfileProps) => import("react/jsx-runtime").JSX.Element;
 export {};
