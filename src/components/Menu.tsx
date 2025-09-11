@@ -7,28 +7,23 @@ type MenuProps = {
     ClassName?: string;
 };
 
-export const AMMenu = ({ children, subHeading = "menu", ClassName }: MenuProps) => {
+export const AMMenu = ({
+    children,
+    subHeading = "menu",
+    ClassName,
+}: MenuProps) => {
     const customizer = useContext(SidebarContext);
 
     return (
-
         <div>
-            <SidebarGroupLabel className={ClassName}
-            >
+            <SidebarGroupLabel className={ClassName}>
                 {/* Subheader */}
-                <div
-                    style={{ color: customizer.textColor }}
-                >
+                <div style={{ color: customizer.textColor }}>
                     {!customizer.isCollapse ? subHeading : "..."}
                 </div>
             </SidebarGroupLabel>
 
-
-            <div>
-                {children}
-            </div>
+            <div>{children}</div>
         </div>
-
-
     );
 };

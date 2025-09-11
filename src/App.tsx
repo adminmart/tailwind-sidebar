@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AMSidebar isCollapse={false}>
+        <AMSidebar isCollapse={false} direction="ltr">
           <AMLogo
             img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
             component={Link}
@@ -66,7 +66,7 @@ function App() {
             <AMMenuItem>Level 1.1</AMMenuItem>
             <AMMenuItem>Level 1.2</AMMenuItem>
 
-            <AMSubmenu title="Level 2" icon={<Command size={20} />}>
+            <AMSubmenu title="Level 2" icon={<Command size={20} />} >
               <AMMenuItem>Level 2.1</AMMenuItem>
               <AMMenuItem>Level 2.2</AMMenuItem>
             </AMSubmenu>
@@ -76,6 +76,8 @@ function App() {
             badge={true}
             badgeContent={"outline"}
             badgeType="outline"
+
+
             icon={<Layers2 size={20} />}
           >
             Outline
@@ -85,7 +87,7 @@ function App() {
             Disabled
           </AMMenuItem>
         </AMSidebar>
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   );
 }

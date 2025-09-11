@@ -8,5 +8,5 @@ type SubmenuProps = {
     disabled?: boolean;
     ClassName?: string;
 };
-export declare function AMSubmenu({ title, children, icon, textFontSize, disabled, borderRadius, ClassName }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
+export declare function AMSubmenu({ title, children, icon, textFontSize, disabled, borderRadius, ClassName, }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
 export {};

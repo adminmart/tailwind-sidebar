@@ -1,115 +1,102 @@
 import * as React from "react";
 import {
-    Collapsible,
-    CollapsibleTrigger,
-    CollapsibleContent,
+  Collapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
 } from "../components/ui/collapsible";
 import { ChevronRight, ChevronDown, CircleDot } from "lucide-react";
 import { SidebarContext } from "./Sidebar";
 import clsx from "clsx";
-import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
-
+import {
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "./ui/sidebar";
 
 type SubmenuProps = {
-    children: React.ReactNode;
-    title?: string;
-    icon?: React.ReactNode;
-    borderRadius?: string;
-    textFontSize?: string;
-    disabled?: boolean;
-    ClassName?: string;
-
+  children: React.ReactNode;
+  title?: string;
+  icon?: React.ReactNode;
+  borderRadius?: string;
+  textFontSize?: string;
+  disabled?: boolean;
+  ClassName?: string;
 };
+
 export function AMSubmenu({
-    title,
-    children,
-    icon,
-    textFontSize = "text-sm",
-    disabled = false,
-    borderRadius = "rounded-md",
-    ClassName = ''
-
+  title,
+  children,
+  icon,
+  textFontSize = "text-sm",
+  disabled = false,
+  borderRadius = "rounded-md",
+  ClassName = "",
 }: SubmenuProps) {
-    const [open, setOpen] = React.useState(false);
-    const customizer = React.useContext(SidebarContext);
+  const [open, setOpen] = React.useState(false);
+  const customizer = React.useContext(SidebarContext);
 
-    return (
+  return (
+    <div className={clsx("w-full", ClassName)}>
+      <Collapsible open={open} onOpenChange={setOpen} className="flex flex-col">
+        <CollapsibleTrigger asChild>
+          <button
+            disabled={disabled}
+            onClick={() => setOpen(!open)}
+            className={clsx(
+              "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
+              borderRadius,
+              open ? "text-white" : `text-[${customizer.textColor}]`,
+              customizer?.animation && "hover:transform hover:translate-x-1",
+              {
+                "cursor-not-allowed opacity-50": disabled,
+                "cursor-pointer": !disabled,
+                // only apply hover styles if not disabled and not open
+                "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground":
+                  !disabled && !open,
+              }
+            )}
+            style={{
+              backgroundColor: open ? customizer?.themeColor : undefined,
+            }}
+          >
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-3">
+                <span className="text-inherit">
+                  {icon ? icon : <CircleDot size={20} />}
+                </span>
+                {!customizer?.isCollapse && (
+                  <span
+                    className={clsx(textFontSize, "truncate leading-tight")}
+                  >
+                    {title}
+                  </span>
+                )}
+              </div>
 
-        <div className={clsx("w-full", ClassName)}>
-            <Collapsible
-                open={open}
-                onOpenChange={setOpen}
-                className="flex flex-col"
-            >
-                <CollapsibleTrigger asChild>
+              {!customizer?.isCollapse &&
+                (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
+            </div>
+          </button>
+        </CollapsibleTrigger>
 
-                    <button
-                        disabled={disabled}
-                        onClick={() => setOpen(!open)}
-                        className={clsx(
-                            "flex items-center justify-between rounded-md   hover:bg-primary/20  p-2.5",
-                            borderRadius,
-                            customizer.animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
-                            {
-                                "cursor-not-allowed opacity-60 ": disabled,
-                                "cursor-pointer": !disabled,
-                                "justify-center px-3": customizer.isCollapse,
-                                "justify-between": !customizer.isCollapse,
-                            }
-
-                        )}
-                        style={{
-                            color: open ? "#fff" : customizer?.textColor,
-                            backgroundColor: open ? customizer?.themeColor : undefined,
-                        }}
-                    >
-                        {/* Icon + Title */}
-                        <div className="flex items-center gap-3 ">
-                            <span className="text-inherit">
-                                {icon ? icon : <CircleDot size={20} />}
-                            </span>
-
-                            {/* Title */}
-                            {!customizer?.isCollapse && (
-                                <span className={clsx(textFontSize, "truncate leading-tight")}>
-                                    {title}
-                                </span>
-                            )}
-                        </div>
-
-                        {/* Chevron */}
-                        {!customizer?.isCollapse &&
-                            (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
-                    </button>
-
-                </CollapsibleTrigger>
-
-                {/* Submenu Items */}
-
-                <CollapsibleContent
-                    className={clsx(
-                        "mt-1 flex flex-col space-y-1",
-                        customizer?.isCollapse && "items-center",
-
-                    )}
-                >
-                    <SidebarGroupContent>
-                        <SidebarMenu>
-                            {
-                                // Render each child inside its own SidebarMenuItem
-                                React.Children.map(children, (child, index) => (
-                                    <SidebarMenuItem key={index}>
-                                        <SidebarMenuButton asChild>
-                                            {child}
-                                        </SidebarMenuButton>
-                                    </SidebarMenuItem>
-                                ))
-                            }
-                        </SidebarMenu>
-                    </SidebarGroupContent>
-                </CollapsibleContent>
-            </Collapsible>
-        </div >
-
-    );
+        <CollapsibleContent
+          className={clsx(
+            " flex flex-col",
+            customizer?.isCollapse && "items-center"
+          )}
+        >
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {React.Children.map(children, (child, index) => (
+                <SidebarMenuItem key={index}>
+                  <SidebarMenuButton asChild>{child}</SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </CollapsibleContent>
+      </Collapsible>
+    </div>
+  );
 }

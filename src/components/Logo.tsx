@@ -21,14 +21,13 @@ export const AMLogo = ({
     return (
         <SidebarHeader>
             <div
-                className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1  py-2  overflow-ellipsis ${customizer.direction === "rtl" ? ' rtl:scale-x-[-1]' : ''}`}
+                className={`min-h-[50px] overflow-hidden flex w-[253px] whitespace-nowrap  line-clamp-1  py-2  overflow-ellipsis ${customizer.direction === "rtl" && customizer.isCollapse === false ? ' rtl:scale-x-[-1]' : ''} ${customizer.isCollapse === false ? 'justify-end' : 'justify-start'} ${customizer.direction === "ltr" && 'justify-start'} `}
             >
                 <Link
                     href={href}
                     component={component}
                     to={href}
-                    className={`w-[40px] flex ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"
-                        }`}
+                    className={`w-[40px] flex ${customizer.direction === 'rtl' ? "justify-end" : ""} ${customizer.isCollapse ? "overflow-hidden" : "overflow-visible"}`}
                 >
                     {img ? (
                         <img src={img} alt="Logo" style={{ maxWidth: "unset" }} />

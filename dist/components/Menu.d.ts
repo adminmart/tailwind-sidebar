@@ -3,5 +3,5 @@ type MenuProps = {
     subHeading?: string;
     ClassName?: string;
 };
-export declare const AMMenu: ({ children, subHeading, ClassName }: MenuProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMMenu: ({ children, subHeading, ClassName, }: MenuProps) => import("react/jsx-runtime").JSX.Element;
 export {};
