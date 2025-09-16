@@ -4,7 +4,7 @@ React Tailwind Sidebar helps to create side Navigation.
 
 # Live Demo
 
-[Demo](#)
+[Demo](https://tailwind-sidebar.vercel.app/)
 
 ## Authors
 
