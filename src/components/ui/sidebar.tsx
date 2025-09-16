@@ -533,7 +533,7 @@ function SidebarMenuButton({
       data-sidebar="menu-button"
       data-size={size}
       data-active={isActive}
-      className={cn("p-2.5 mb-0.5", sidebarMenuButtonVariants({ variant, size, active: isActive, }), className)}
+      className={cn("p-2.5 mb-0.5 ", sidebarMenuButtonVariants({ variant, size, active: isActive, }), className)}
       {...props}
     />
   )

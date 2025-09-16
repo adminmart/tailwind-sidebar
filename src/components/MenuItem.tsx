@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SidebarContext } from "./Sidebar";
 
 import Links from "./Links";
@@ -51,7 +51,7 @@ export const AMMenuItem = ({
 }: MenuItemProps) => {
     const customizer = React.useContext(SidebarContext);
     const isCollapse = customizer?.isCollapse;
-
+    const { animation } = useContext(SidebarContext)
     return (
 
 
@@ -64,7 +64,7 @@ export const AMMenuItem = ({
                             <div
                                 className={cn(
                                     "h-full whitespace-nowrap transition-all duration-200 ease-in-out",
-                                    customizer.animation && "hover:translate-x-1 ",
+                                    animation && "transition-all duration-300 ease-in-out hover:translate-x-1 ",
                                     borderRadius,
                                     isSelected ? "text-white " : `text-[${customizer.textColor}]`,
 
