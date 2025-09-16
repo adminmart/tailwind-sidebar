@@ -99,8 +99,8 @@ export const AMSidebar = ({
                         side={side}
                         className={clsx("border-r border-border ", ClassName)}
                     >
-                        <SidebarContent className={clsx(ClassName)}>
-                            <SidebarGroup>
+                        <SidebarContent>
+                            <SidebarGroup >
                                 {children}
                             </SidebarGroup>
                         </SidebarContent>
