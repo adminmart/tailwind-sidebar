@@ -4,7 +4,7 @@ React Tailwind Sidebar helps to create side Navigation.
 
 # Live Demo
 
-[Demo](https://tailwind-sidebar.vercel.app)
+[Demo](#)
 
 ## Authors
 
@@ -62,7 +62,7 @@ import Link from "next/link";
 
 const App = () => {
   return (
-    <AMSidebar width={"270px"}>
+    <AMSidebar width={"270px"} collapsible="none">
       <AMLogo
         img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
         component={Link}
@@ -138,34 +138,35 @@ export default App;
 #### Sidebar Api Reference
 
 ```http
-  <Sidebar></Sidebar>
+  <AMSidebar></AMSidebar>
 ```
 
-| Props                 | Type       | Default          | Description                                                                       |
-| :-------------------- | :--------- | :--------------- | --------------------------------------------------------------------------------- |
-| `width`               | `string`   | `260px`          | set the width of sidebar                                                          |
-| `textColor`           | `string`   | `#2b2b2b`        | set this color to all MenuItem and SubMenu of sidebar                             |
-| `isCollapse`          | `boolean`  | `false`          | set the Sidebar to mini sidebar                                                   |
-| `themeColor`          | `string`   | `#5d87ff`        | set the theme primary color                                                       |
-| `themeSecondaryColor` | `string`   | `#49beff`        | set the theme secondary color                                                     |
-| `mode`                | `string`   | `light`          | set the mode of the Sidebar light or Dark                                         |
-| `direction`           | `string`   | `ltr`            | set the direction of Sidebar ltr or rtl                                           |
-| `userName`            | `string`   | `Mathew`         | set the user name of User Profile                                                 |
-| `designation`         | `string`   | `Designer`       | set the user designation of User Profile                                          |
-| `showProfile`         | `boolean`  | `true`           | show the user profile true or false                                               |
-| `userimg`             | `string`   | `user image url` | set the image of user in User Profile                                             |
-| `onLogout`            | `function` | `handleLogout`   | set the logout function for user logout                                           |
-| `ClassName`           | `string`   | ` `              | set the custom CSS class for Sidebar styling                                      |
-| `collapseWidth`       | `string`   | `80px`           | set the width of Sidebar when collapsed                                           |
-| `variant`             | `string`   | `sidebar`        | set the styling variant of the Sidebar — options: "sidebar", "floating" ,"inset"  |
-| `side`                | `string`   | `left`           | set the position of the Sidebar on screen — options: "left", "right"              |
-| `animation`           | `boolean`  | `false`          | set whether to enable sidebar MenuItem animation effects                          |
-| `collapsible`         | `string`   | `icon`           | set the collapse behavior of the Sidebar — options: "offcanvas" , "icon" , "none" |
+| Props                 | Type       | Default          | Description                                                                             |
+| :-------------------- | :--------- | :--------------- | --------------------------------------------------------------------------------------- |
+| `width`               | `string`   | `260px`          | set the width of sidebar                                                                |
+| `textColor`           | `string`   | `#2b2b2b`        | set this color to all MenuItem and SubMenu of sidebar                                   |
+| `isCollapse`          | `boolean`  | `false`          | set the Sidebar to mini sidebar                                                         |
+| `themeColor`          | `string`   | `#5d87ff`        | set the theme primary color                                                             |
+| `themeSecondaryColor` | `string`   | `#49beff`        | set the theme secondary color                                                           |
+| `mode`                | `string`   | `light`          | set the mode of the Sidebar light or Dark                                               |
+| `direction`           | `string`   | `ltr`            | set the direction of Sidebar ltr or rtl                                                 |
+| `userName`            | `string`   | `Mathew`         | set the user name of User Profile                                                       |
+| `designation`         | `string`   | `Designer`       | set the user designation of User Profile                                                |
+| `showProfile`         | `boolean`  | `true`           | show the user profile true or false                                                     |
+| `userimg`             | `string`   | `user image url` | set the image of user in User Profile                                                   |
+| `onLogout`            | `function` | `handleLogout`   | set the logout function for user logout                                                 |
+| `ClassName`           | `string`   | ` `              | set the custom CSS class for Sidebar styling                                            |
+| `collapseWidth`       | `string`   | `80px`           | set the width of Sidebar when collapsed                                                 |
+| `variant`             | `string`   | `sidebar`        | set the styling variant of the Sidebar — options: "sidebar", "floating" ,"inset"        |
+| `side`                | `string`   | `left`           | set the position of the Sidebar on screen — options: "left", "right"                    |
+| `animation`           | `boolean`  | `false`          | set whether to enable sidebar MenuItem animation effects                                |
+| `collapsible`         | `string`   | `icon`           | set the collapse behavior of the Sidebar — options: "offcanvas" , "icon" , "none"       |
+| `showTrigger`         | `boolean`  | `false`          | how or hide the trigger icon for toggling the Sidebar — `true` to show, `false` to hide |
 
 #### Menu Api Reference
 
 ```http
-  <Menu></Menu>
+  <AMMenu></AMMenu>
 ```
 
 | Props        | Type     | Default | Description                                |
@@ -176,22 +177,24 @@ export default App;
 #### Submenu Api Reference
 
 ```http
-  <Submenu></Submenu>
+  <AMSubmenu></AMSubmenu>
 ```
 
-| Props          | Type              | Default                   | Description                                       |
-| :------------- | :---------------- | :------------------------ | ------------------------------------------------- |
-| `title`        | `string`          | `blank`                   | title of the submenu                              |
-| `icon`         | `React.ReactNode` | `Lucide icon - <Circle/>` | set icon of submenu                               |
-| `borderRadius` | `string`          | `rounded-md`              | set border radius of Submenu                      |
-| `textFontSize` | `string`          | `text-sm`                 | set text Font Size of the submenu                 |
-| `disabled`     | `boolean`         | `false`                   | enable/disable the Submenu                        |
-| `ClassName`    | `string`          | ` `                       | set custom Tailwind CSS class for submenu styling |
+| Props          | Type               | Default                   | Description                                       |
+| :------------- | :----------------- | :------------------------ | ------------------------------------------------- |
+| `title`        | `string`           | `blank`                   | title of the submenu                              |
+| `icon`         | `React.ReactNode`  | `Lucide icon - <Circle/>` | set icon of submenu                               |
+| `borderRadius` | `string`           | `rounded-md`              | set border radius of Submenu                      |
+| `textFontSize` | `string`           | `text-sm`                 | set text Font Size of the submenu                 |
+| `disabled`     | `boolean`          | `false`                   | enable/disable the Submenu                        |
+| `ClassName`    | `string`           | ` `                       | set custom Tailwind CSS class for submenu styling |
+| `collapseIcon` | ` React.ReactNode` | `<ChevronRight /> `       | Set icon to display when the submenu is collapsed |
+| `expandIcon`   | ` React.ReactNode` | ` <ChevronDown />`        | Set icon to display when the submenu is expanded  |
 
 #### MenuItem Api Reference
 
 ```http
-  <MenuItem></MenuItem>
+  <AMMenuItem></AMMenuItem>
 ```
 
 | Props            | Type                | Default                   | Description                                                                           |
@@ -216,7 +219,7 @@ export default App;
 #### Logo Api Reference
 
 ```http
-  <Logo></Logo>
+  <AMLogo></AMLogo>
 ```
 
 | Props        | Type                | Default    | Description                                         |

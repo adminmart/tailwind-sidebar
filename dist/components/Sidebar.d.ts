@@ -19,6 +19,7 @@ type SidebarProps = {
     side?: "left" | "right";
     variant?: "sidebar" | "floating" | "inset";
     collapsible?: "offcanvas" | "icon" | "none";
+    showTrigger?: boolean;
 };
 export declare const SidebarContext: React.Context<{
     width: string;
@@ -30,5 +31,5 @@ export declare const SidebarContext: React.Context<{
     direction: string;
     animation: boolean;
 }>;
-export declare const AMSidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, mode, direction, userName, designation, showProfile, userimg, onLogout, animation, ClassName, side, variant, collapsible, }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMSidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, mode, direction, userName, designation, showProfile, userimg, onLogout, animation, ClassName, side, variant, collapsible, showTrigger }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
 export {};

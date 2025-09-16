@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AMSidebar isCollapse={false} direction="ltr">
+        <AMSidebar isCollapse={false} direction="ltr" showTrigger={false} animation={true}>
           <AMLogo
             img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
             component={Link}

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SidebarContext } from "./Sidebar";
 import { SidebarGroupLabel } from "./ui/sidebar";
+import { cn } from "src/lib/utils";
 type MenuProps = {
     children?: React.ReactNode;
     subHeading?: string;
@@ -16,11 +17,11 @@ export const AMMenu = ({
 
     return (
         <div>
-            <SidebarGroupLabel className={ClassName}>
+            <SidebarGroupLabel className={cn(customizer.textColor, ClassName)}>
                 {/* Subheader */}
-                <div style={{ color: customizer.textColor }}>
-                    {!customizer.isCollapse ? subHeading : "..."}
-                </div>
+
+                {!customizer.isCollapse ? subHeading : "..."}
+
             </SidebarGroupLabel>
 
             <div>{children}</div>

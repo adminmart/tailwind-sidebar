@@ -24,6 +24,7 @@ type SidebarProps = {
     side?: "left" | "right"
     variant?: "sidebar" | "floating" | "inset"
     collapsible?: "offcanvas" | "icon" | "none"
+    showTrigger?: boolean
 };
 
 export const SidebarContext = React.createContext({
@@ -61,6 +62,7 @@ export const AMSidebar = ({
     side = "left",
     variant = "sidebar",
     collapsible = "icon",
+    showTrigger = false
 }: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
     const modeClass = mode === "dark" ? "dark" : "";
@@ -84,8 +86,8 @@ export const AMSidebar = ({
             }}
         >
             <SidebarProvider>
-                <SidebarTrigger />
-                <div className={modeClass}>
+                {showTrigger && <SidebarTrigger />}
+                <div className={modeClass} >
                     <ShadSidebar
                         dir={direction}
                         style={{ width: computedWidth, color: textColor, }}
@@ -95,10 +97,10 @@ export const AMSidebar = ({
                         collapsible={collapsible}
                         variant={variant}
                         side={side}
-                        className={clsx("border-r border-border", ClassName)}
+                        className={clsx("border-r border-border ", ClassName)}
                     >
-                        <SidebarContent>
-                            <SidebarGroup>
+                        <SidebarContent className={clsx(ClassName)}>
+                            <SidebarGroup className={clsx(ClassName)}>
                                 {children}
                             </SidebarGroup>
                         </SidebarContent>

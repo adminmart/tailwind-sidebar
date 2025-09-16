@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { SidebarContext } from "./Sidebar";
 
 import Links from "./Links";
@@ -51,9 +51,13 @@ export const AMMenuItem = ({
 
 
 }: MenuItemProps) => {
-    const customizer = React.useContext(SidebarContext);
-    const isCollapse = customizer?.isCollapse;
+    // const customizer = React.useContext(SidebarContext);
+    // const isCollapse = customizer?.isCollapse;
+    const { animation, textColor, themeColor, isCollapse } = useContext(SidebarContext);
 
+    useEffect(() => {
+        console.log("Animation from context:", animation);
+    }, [animation]);
     return (
 
 
@@ -61,21 +65,20 @@ export const AMMenuItem = ({
         <SidebarGroupContent>
             <SidebarMenu>
                 <SidebarMenuItem >
-
                     <Links to={link} component={component} target={target}>
                         <SidebarMenuButton asChild variant={variant} size={size} isActive={isSelected} >
                             <div
                                 className={cn(
-                                    "h-full whitespace-nowrap",
-                                    customizer.animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
+                                    "h-full whitespace-nowrap ",
+                                    animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
                                     borderRadius,
-                                    isSelected ? "text-white " : `text-[${customizer.textColor}]`,
+                                    isSelected ? "text-white " : `text-[${textColor}]`,
 
                                     disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
                                     ClassName
                                 )}
                                 style={{
-                                    backgroundColor: isSelected ? customizer.themeColor : undefined,
+                                    backgroundColor: isSelected ? themeColor : undefined,
 
 
                                 }}
