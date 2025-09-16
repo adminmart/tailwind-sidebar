@@ -82,12 +82,12 @@ export function AMSubmenu({
                 )}
               </div>
 
+              {!isCollapse &&
+                (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)
 
-              {!isCollapse && (
-                open
-                  ? expandIcon ?? <ChevronDown size={16} />
-                  : collapseIcon ?? <ChevronRight size={16} />
-              )}
+
+              }
+
             </div>
           </button>
         </CollapsibleTrigger>

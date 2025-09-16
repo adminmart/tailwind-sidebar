@@ -188,8 +188,7 @@ export default App;
 | `textFontSize` | `string`           | `text-sm`                 | set text Font Size of the submenu                 |
 | `disabled`     | `boolean`          | `false`                   | enable/disable the Submenu                        |
 | `ClassName`    | `string`           | ` `                       | set custom Tailwind CSS class for submenu styling |
-| `collapseIcon` | ` React.ReactNode` | `<ChevronRight /> `       | Set icon to display when the submenu is collapsed |
-| `expandIcon`   | ` React.ReactNode` | ` <ChevronDown />`        | Set icon to display when the submenu is expanded  |
+
 
 #### MenuItem Api Reference
 
