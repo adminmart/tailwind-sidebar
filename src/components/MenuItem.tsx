@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { SidebarContext } from "./Sidebar";
 
 import Links from "./Links";
@@ -25,8 +25,6 @@ interface MenuItemProps {
     ClassName?: string;
     variant?: "default" | "outline"
     size?: "default" | "sm" | "lg"
-
-
 }
 
 export const AMMenuItem = ({
@@ -51,13 +49,9 @@ export const AMMenuItem = ({
 
 
 }: MenuItemProps) => {
-    // const customizer = React.useContext(SidebarContext);
-    // const isCollapse = customizer?.isCollapse;
-    const { animation, textColor, themeColor, isCollapse } = useContext(SidebarContext);
+    const customizer = React.useContext(SidebarContext);
+    const isCollapse = customizer?.isCollapse;
 
-    useEffect(() => {
-        console.log("Animation from context:", animation);
-    }, [animation]);
     return (
 
 
@@ -69,16 +63,16 @@ export const AMMenuItem = ({
                         <SidebarMenuButton asChild variant={variant} size={size} isActive={isSelected} >
                             <div
                                 className={cn(
-                                    "h-full whitespace-nowrap ",
-                                    animation && "hover:transform hover:translate-x-1 transition-all duration-200 ease-in-out",
+                                    "h-full whitespace-nowrap transition-all duration-200 ease-in-out",
+                                    customizer.animation && "hover:translate-x-1 ",
                                     borderRadius,
-                                    isSelected ? "text-white " : `text-[${textColor}]`,
+                                    isSelected ? "text-white " : `text-[${customizer.textColor}]`,
 
                                     disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
                                     ClassName
                                 )}
                                 style={{
-                                    backgroundColor: isSelected ? themeColor : undefined,
+                                    backgroundColor: isSelected ? customizer.themeColor : undefined,
 
 
                                 }}

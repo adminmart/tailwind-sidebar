@@ -13,7 +13,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
-import { useContext } from "react";
 
 type SubmenuProps = {
   children: React.ReactNode;
@@ -23,8 +22,7 @@ type SubmenuProps = {
   textFontSize?: string;
   disabled?: boolean;
   ClassName?: string;
-  collapseIcon?: React.ReactNode;
-  expandIcon?: React.ReactNode;
+
 };
 
 export function AMSubmenu({
@@ -35,14 +33,10 @@ export function AMSubmenu({
   disabled = false,
   borderRadius = "rounded-md",
   ClassName = "",
-  collapseIcon,
-  expandIcon,
+
 }: SubmenuProps) {
   const [open, setOpen] = React.useState(false);
-
-
-  const { animation, textColor, themeColor, isCollapse } = useContext(SidebarContext);
-
+  const customizer = React.useContext(SidebarContext);
 
   return (
     <div className={clsx("w-full", ClassName)}>
@@ -54,8 +48,8 @@ export function AMSubmenu({
             className={clsx(
               "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
               borderRadius,
-              open ? "text-white" : `text-[${textColor}]`,
-              animation && "hover:transform hover:translate-x-1",
+              open ? "text-white" : `text-[${customizer.textColor}]`,
+              customizer?.animation && " hover:translate-x-1",
               {
                 "cursor-not-allowed opacity-50": disabled,
                 "cursor-pointer": !disabled,
@@ -65,7 +59,7 @@ export function AMSubmenu({
               }
             )}
             style={{
-              backgroundColor: open ? themeColor : undefined,
+              backgroundColor: open ? customizer?.themeColor : undefined,
             }}
           >
             <div className="flex items-center justify-between w-full">
@@ -73,7 +67,7 @@ export function AMSubmenu({
                 <span className="text-inherit">
                   {icon ? icon : <CircleDot size={20} />}
                 </span>
-                {!isCollapse && (
+                {!customizer?.isCollapse && (
                   <span
                     className={clsx(textFontSize, "truncate leading-tight")}
                   >
@@ -82,9 +76,8 @@ export function AMSubmenu({
                 )}
               </div>
 
-              {!isCollapse &&
+              {!customizer?.isCollapse &&
                 (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)
-
 
               }
 
@@ -95,7 +88,7 @@ export function AMSubmenu({
         <CollapsibleContent
           className={clsx(
             " flex flex-col",
-            isCollapse && "items-center"
+            customizer?.isCollapse && "items-center"
           )}
         >
           <SidebarGroupContent>

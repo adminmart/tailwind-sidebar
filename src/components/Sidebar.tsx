@@ -100,7 +100,7 @@ export const AMSidebar = ({
                         className={clsx("border-r border-border ", ClassName)}
                     >
                         <SidebarContent className={clsx(ClassName)}>
-                            <SidebarGroup className={clsx(ClassName)}>
+                            <SidebarGroup>
                                 {children}
                             </SidebarGroup>
                         </SidebarContent>

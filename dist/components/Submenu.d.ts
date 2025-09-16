@@ -7,8 +7,6 @@ type SubmenuProps = {
     textFontSize?: string;
     disabled?: boolean;
     ClassName?: string;
-    collapseIcon?: React.ReactNode;
-    expandIcon?: React.ReactNode;
 };
-export declare function AMSubmenu({ title, children, icon, textFontSize, disabled, borderRadius, ClassName, collapseIcon, expandIcon, }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
+export declare function AMSubmenu({ title, children, icon, textFontSize, disabled, borderRadius, ClassName, }: SubmenuProps): import("react/jsx-runtime").JSX.Element;
 export {};

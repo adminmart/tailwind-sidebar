@@ -4,7 +4,7 @@ React Tailwind Sidebar helps to create side Navigation.
 
 # Live Demo
 
-[Demo](https://tailwind-sidebar.vercel.app/)
+[Demo](https://tailwind-admin-react-free.netlify.app/)
 
 ## Authors
 
@@ -180,15 +180,14 @@ export default App;
   <AMSubmenu></AMSubmenu>
 ```
 
-| Props          | Type               | Default                   | Description                                       |
-| :------------- | :----------------- | :------------------------ | ------------------------------------------------- |
-| `title`        | `string`           | `blank`                   | title of the submenu                              |
-| `icon`         | `React.ReactNode`  | `Lucide icon - <Circle/>` | set icon of submenu                               |
-| `borderRadius` | `string`           | `rounded-md`              | set border radius of Submenu                      |
-| `textFontSize` | `string`           | `text-sm`                 | set text Font Size of the submenu                 |
-| `disabled`     | `boolean`          | `false`                   | enable/disable the Submenu                        |
-| `ClassName`    | `string`           | ` `                       | set custom Tailwind CSS class for submenu styling |
-
+| Props          | Type              | Default                   | Description                                       |
+| :------------- | :---------------- | :------------------------ | ------------------------------------------------- |
+| `title`        | `string`          | `blank`                   | title of the submenu                              |
+| `icon`         | `React.ReactNode` | `Lucide icon - <Circle/>` | set icon of submenu                               |
+| `borderRadius` | `string`          | `rounded-md`              | set border radius of Submenu                      |
+| `textFontSize` | `string`          | `text-sm`                 | set text Font Size of the submenu                 |
+| `disabled`     | `boolean`         | `false`                   | enable/disable the Submenu                        |
+| `ClassName`    | `string`          | ` `                       | set custom Tailwind CSS class for submenu styling |
 
 #### MenuItem Api Reference
 
