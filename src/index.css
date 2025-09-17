@@ -167,3 +167,10 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@layer utilities {
+  .force-hover-translate {
+    @apply hover:translate-x-1;
+  }
+}
+
+

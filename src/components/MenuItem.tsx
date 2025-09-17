@@ -7,6 +7,7 @@ import { cn } from "../lib/utils";
 import { Badge } from "./ui/badge"
 import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
+
 interface MenuItemProps {
     children: React.ReactNode;
     icon?: React.ReactNode;
@@ -64,7 +65,6 @@ export const AMMenuItem = ({
                             <div
                                 className={cn(
                                     "h-full whitespace-nowrap transition-all duration-200 ease-in-out",
-                                    customizer.animation && "hover:translate-x-1 ",
                                     borderRadius,
                                     isSelected ? "text-white " : `text-[${customizer.textColor}]`,
 
@@ -73,8 +73,17 @@ export const AMMenuItem = ({
                                 )}
                                 style={{
                                     backgroundColor: isSelected ? customizer.themeColor : undefined,
-
-
+                                    transition: "transform 0.3s ease",
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.transform = "translateX(4px)";
+                                    e.currentTarget.style.backgroundColor = isSelected ? customizer.themeColor : `${customizer.themeColor}1a`; 
+                                    e.currentTarget.style.color = isSelected ? "white" : `${customizer.themeColor}`; 
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = "translateX(0)";
+                                    e.currentTarget.style.backgroundColor = isSelected ? customizer.themeColor : `${customizer.themeColor}00`;
+                                    e.currentTarget.style.color = isSelected ? "white" : `${customizer.textColor}`;
                                 }}
 
                             >
@@ -96,7 +105,8 @@ export const AMMenuItem = ({
                                                 variant={badgeType}
                                                 className={cn(
                                                     badgeColor,
-                                                    badgeTextColor
+                                                    badgeTextColor,
+                                                    
                                                 )}
                                             >
                                                 {badgeContent}
