@@ -5,7 +5,7 @@ import Links from "./Links";
 import { CircleDot } from "lucide-react";
 import { cn } from "../lib/utils";
 import { Badge } from "./ui/badge"
-import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
 
 interface MenuItemProps {
@@ -46,17 +46,11 @@ export const AMMenuItem = ({
     ClassName = "",
     variant = "default",
     size = "default",
-
-
-
 }: MenuItemProps) => {
     const customizer = React.useContext(SidebarContext);
     const isCollapse = customizer?.isCollapse;
     return (
-
-
-
-        <SidebarGroupContent>
+        
             <SidebarMenu>
                 <SidebarMenuItem >
                     <Links to={link} component={component} target={target}>
@@ -122,7 +116,6 @@ export const AMMenuItem = ({
 
                 </SidebarMenuItem>
             </SidebarMenu>
-        </SidebarGroupContent >
 
 
     );

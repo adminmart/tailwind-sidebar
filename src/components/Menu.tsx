@@ -19,9 +19,7 @@ export const AMMenu = ({
         <div>
             <SidebarGroupLabel className={cn(customizer.textColor, ClassName)}>
                 {/* Subheader */}
-
                 {!customizer.isCollapse ? subHeading : "..."}
-
             </SidebarGroupLabel>
 
             <div>{children}</div>
