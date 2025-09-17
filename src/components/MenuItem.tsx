@@ -52,7 +52,6 @@ export const AMMenuItem = ({
 }: MenuItemProps) => {
     const customizer = React.useContext(SidebarContext);
     const isCollapse = customizer?.isCollapse;
-
     return (
 
 

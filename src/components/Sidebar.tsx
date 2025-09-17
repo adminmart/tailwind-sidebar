@@ -97,10 +97,10 @@ export const AMSidebar = ({
                         collapsible={collapsible}
                         variant={variant}
                         side={side}
-                        className={clsx("border-r border-border ", ClassName)}
+                        className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", ClassName)}
                     >
-                        <SidebarContent className={clsx(ClassName)}>
-                            <SidebarGroup>
+                        <SidebarContent>
+                            <SidebarGroup >
                                 {children}
                             </SidebarGroup>
                         </SidebarContent>

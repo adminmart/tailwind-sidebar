@@ -82,7 +82,7 @@ body {
 
 @theme inline {
   --safelist: hover:translate-x-1;
-  
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
