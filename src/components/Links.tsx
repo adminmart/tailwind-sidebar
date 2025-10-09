@@ -1,24 +1,30 @@
 import { ElementType, ReactNode } from "react";
 
-
-
 interface MenuItemProps {
-    component?: ElementType; // Accepts any valid component (default: "a")
+    component?: ElementType;
     children: ReactNode;
-    [key: string]: any; // Allows passing additional props dynamically
+    to?: string;
+    href?: string;
+    [key: string]: any;
 }
-
 
 function Links({
     component: Component = "a",
     children,
+    to,
+    href,
     ...props
 }: MenuItemProps) {
     return (
-        <Component {...props} style={{ textDecoration: "none" }} >
+        <Component
+            {...props}
+            to={to}
+            href={href ?? to} // fallback href if only 'to' is provided
+            style={{ textDecoration: "none" }}
+        >
             {children}
         </Component>
-    )
+    );
 }
 
-export default Links
+export default Links;
