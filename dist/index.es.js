@@ -6938,8 +6938,8 @@ const Vc = ({
           }
         ),
         /* @__PURE__ */ p.jsxs("div", { children: [
-          /* @__PURE__ */ p.jsx("p", { className: "text-lg font-medium", children: e }),
-          /* @__PURE__ */ p.jsx("p", { className: "text-xs text-gray-400 ", children: t })
+          /* @__PURE__ */ p.jsx("p", { className: "text-lg font-medium dark:text-white", children: e }),
+          /* @__PURE__ */ p.jsx("p", { className: "text-xs text-gray-400 dark:text-white/40", children: t })
         ] }),
         /* @__PURE__ */ p.jsx("div", { className: "ml-auto", children: /* @__PURE__ */ p.jsx(
           "button",

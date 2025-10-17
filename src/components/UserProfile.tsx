@@ -42,8 +42,8 @@ export const AMProfile = ({
 
                         {/* User Info */}
                         <div>
-                            <p className="text-lg font-medium">{userName}</p>
-                            <p className="text-xs text-gray-400 ">{designation}</p>
+                            <p className="text-lg font-medium dark:text-white">{userName}</p>
+                            <p className="text-xs text-gray-400 dark:text-white/40">{designation}</p>
                         </div>
 
                         {/* Logout Icon Button */}
