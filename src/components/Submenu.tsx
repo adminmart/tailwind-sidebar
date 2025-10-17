@@ -48,25 +48,18 @@ export function AMSubmenu({
             className={clsx(
               "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
               borderRadius,
-              open ? "text-white" : `text-[${customizer.textColor}]`,
-              customizer?.animation && "",
+              open ? "text-white" : `text-sidebar-txtclr dark:text-white`,
+              customizer?.animation && " hover:translate-x-1",
               {
                 "cursor-not-allowed opacity-50": disabled,
                 "cursor-pointer": !disabled,
+                // only apply hover styles if not disabled and not open
+                "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground dark:hover:text-sidebar-accent-foreground":
+                  !disabled && !open,
               }
             )}
             style={{
               backgroundColor: open ? customizer?.themeColor : undefined,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translateX(4px)";
-              e.currentTarget.style.backgroundColor = !disabled && open ? customizer.themeColor : `${customizer.themeColor}1a`;
-              e.currentTarget.style.color = !disabled && open ? "white" : `${customizer.themeColor}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translateX(0)";
-              e.currentTarget.style.backgroundColor = !disabled && open ? customizer.themeColor : `${customizer.themeColor}00`;
-              e.currentTarget.style.color = !disabled && open ? "white" : `${customizer.textColor}`;
             }}
           >
             <div className="flex items-center justify-between w-full">

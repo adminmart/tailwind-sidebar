@@ -50,6 +50,7 @@ import {
   Command,
   Layers2,
 } from "lucide-react";
+import 'tailwind-sidebar/styles.css';
 
 {
   /* if you are using react then import link from  */

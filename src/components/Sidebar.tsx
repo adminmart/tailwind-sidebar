@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Sidebar as ShadSidebar, SidebarContent, SidebarGroup, SidebarProvider, SidebarTrigger } from "./ui/sidebar";
 
 import { AMProfile } from "./UserProfile";
@@ -65,58 +65,59 @@ export const AMSidebar = ({
     showTrigger = false
 }: SidebarProps) => {
     const computedWidth = isCollapse ? collapsewidth : width;
-    const modeClass = mode === "dark" ? "dark" : "";
+    console.log(mode)
 
-    // Set textColor dynamically based on mode
-    if (mode === "dark") {
-        textColor = "rgba(255,255,255, 0.9)";
-    }
+    useEffect(() => {
+    document.documentElement.style.setProperty("--lightprimary", `${themeColor}2a`);
+    document.documentElement.style.setProperty("--sidebar-primary", themeColor);
+    document.documentElement.style.setProperty("--sidebar-txtclr", textColor);
+  }, [themeColor]);
 
     return (
-        <SidebarContext.Provider
-            value={{
-                width,
-                collapsewidth,
-                themeColor,
-                textColor,
-                themeSecondaryColor,
-                direction,
-                isCollapse,
-                animation,
-            }}
+  <SidebarContext.Provider
+    value={{
+      width,
+      collapsewidth,
+      themeColor,
+      textColor,
+      themeSecondaryColor,
+      direction,
+      isCollapse,
+      animation,
+    }}
+  >
+    <SidebarProvider>
+      {showTrigger && <SidebarTrigger />}
+      <div>
+        <ShadSidebar
+          dir={direction}
+          style={{ width: computedWidth, color: textColor }}
+          isCollapse={isCollapse}
+          width={width}
+          collapsewidth={collapsewidth}
+          collapsible={collapsible}
+          variant={variant}
+          side={side}
+          className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", ClassName)}
         >
-            <SidebarProvider>
-                {showTrigger && <SidebarTrigger />}
-                <div className={modeClass} >
-                    <ShadSidebar
-                        dir={direction}
-                        style={{ width: computedWidth, color: textColor, }}
-                        isCollapse={isCollapse}
-                        width={width}
-                        collapsewidth={collapsewidth}
-                        collapsible={collapsible}
-                        variant={variant}
-                        side={side}
-                        className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", ClassName)}
-                    >
-                        <SidebarContent>
-                            <SidebarGroup >
-                                {children}
-                            </SidebarGroup>
-                        </SidebarContent>
-                        {showProfile && (
-                            <AMProfile
-                                userName={userName}
-                                designation={designation}
-                                userimg={userimg}
-                                isCollapse={isCollapse}
-                                onLogout={onLogout}
-                            />
+          <SidebarContent>
+            <SidebarGroup>
+            {children}
+            </SidebarGroup>
+          </SidebarContent>
 
-                        )}
-                    </ShadSidebar>
-                </div>
-            </SidebarProvider>
-        </SidebarContext.Provider >
+          {showProfile && (
+            <AMProfile
+              userName={userName}
+              designation={designation}
+              userimg={userimg}
+              isCollapse={isCollapse}
+              onLogout={onLogout}
+            />
+          )}
+        </ShadSidebar>
+      </div>
+    </SidebarProvider>
+  </SidebarContext.Provider>
     );
 };

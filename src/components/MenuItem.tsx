@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SidebarContext } from "./Sidebar";
 
 import Links from "./Links";
 import { CircleDot } from "lucide-react";
 import { cn } from "../lib/utils";
 import { Badge } from "./ui/badge"
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
-
+import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
 
 interface MenuItemProps {
     children: React.ReactNode;
@@ -23,7 +22,7 @@ interface MenuItemProps {
     link?: string;
     target?: string;
     isSelected?: boolean;
-    ClassName?: string;
+    className?: string;
     variant?: "default" | "outline"
     size?: "default" | "sm" | "lg"
 }
@@ -43,40 +42,38 @@ export const AMMenuItem = ({
     link = "#",
     target = "",
     isSelected = false,
-    ClassName = "",
+    className = "",
     variant = "default",
     size = "default",
+
+
+
 }: MenuItemProps) => {
     const customizer = React.useContext(SidebarContext);
     const isCollapse = customizer?.isCollapse;
+    const { animation } = useContext(SidebarContext);
+
     return (
-        
+
+
+
+        <SidebarGroupContent>
             <SidebarMenu>
                 <SidebarMenuItem >
                     <Links to={link} component={component} target={target}>
-                        <SidebarMenuButton asChild variant={variant} size={size} isActive={isSelected} >
+                        <SidebarMenuButton asChild variant={variant} size={size} isActive={isSelected}>
                             <div
                                 className={cn(
                                     "h-full whitespace-nowrap transition-all duration-200 ease-in-out",
+                                    animation && "transition-all duration-300 ease-in-out hover:translate-x-1 ",
                                     borderRadius,
-                                    isSelected ? "text-white " : `text-[${customizer.textColor}]`,
+                                    isSelected ? "text-white " : `text-sidebar-txtclr dark:text-white`,
 
                                     disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer",
-                                    ClassName
+                                    className
                                 )}
                                 style={{
                                     backgroundColor: isSelected ? customizer.themeColor : undefined,
-                                    transition: "transform 0.3s ease",
-                                }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.transform = "translateX(4px)";
-                                    e.currentTarget.style.backgroundColor = isSelected ? customizer.themeColor : `${customizer.themeColor}1a`; 
-                                    e.currentTarget.style.color = isSelected ? "white" : `${customizer.themeColor}`; 
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.transform = "translateX(0)";
-                                    e.currentTarget.style.backgroundColor = isSelected ? customizer.themeColor : `${customizer.themeColor}00`;
-                                    e.currentTarget.style.color = isSelected ? "white" : `${customizer.textColor}`;
                                 }}
 
                             >
@@ -98,8 +95,7 @@ export const AMMenuItem = ({
                                                 variant={badgeType}
                                                 className={cn(
                                                     badgeColor,
-                                                    badgeTextColor,
-                                                    
+                                                    badgeTextColor
                                                 )}
                                             >
                                                 {badgeContent}
@@ -116,11 +112,11 @@ export const AMMenuItem = ({
 
                 </SidebarMenuItem>
             </SidebarMenu>
+        </SidebarGroupContent >
 
 
     );
 };
-
 
 
 

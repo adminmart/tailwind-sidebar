@@ -14,9 +14,9 @@ interface MenuItemProps {
     link?: string;
     target?: string;
     isSelected?: boolean;
-    ClassName?: string;
+    className?: string;
     variant?: "default" | "outline";
     size?: "default" | "sm" | "lg";
 }
-export declare const AMMenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, ClassName, variant, size, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMMenuItem: ({ children, icon, component, badge, badgeColor, badgeTextColor, badgeContent, textFontSize, borderRadius, disabled, badgeType, link, target, isSelected, className, variant, size, }: MenuItemProps) => import("react/jsx-runtime").JSX.Element;
 export {};
