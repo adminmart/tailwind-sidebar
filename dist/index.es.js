@@ -6777,7 +6777,7 @@ function $c({ className: e, ...t }) {
       "data-slot": "sidebar-content",
       "data-sidebar": "content",
       className: W(
-        "flex min-h-0 flex-1 flex-col gap-2 px-5 group-data-[collapsible=icon]:overflow-hidden",
+        "flex min-h-0 flex-1 flex-col gap-2 group-data-[collapsible=icon]:overflow-hidden",
         e
       ),
       ...t
@@ -7339,7 +7339,7 @@ function mu({
         onClick: () => l(!a),
         className: xe(
           "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
-          `${ru.shadcn_sub_menu}`,
+          `${ru.shadcn_sub_menu} ${i}`,
           s,
           a ? "text-white" : "text-sidebar-txtclr dark:text-white",
           c?.animation && " hover:translate-x-1",

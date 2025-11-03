@@ -48,7 +48,7 @@ export function AMSubmenu({
             onClick={() => setOpen(!open)}
             className={clsx(
               "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
-              `${styles.shadcn_sub_menu}`,
+              `${styles.shadcn_sub_menu} ${ClassName}`,
               borderRadius,
               open ? "text-white" : `text-sidebar-txtclr dark:text-white`,
               customizer?.animation && " hover:translate-x-1",
