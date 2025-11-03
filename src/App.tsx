@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AMSidebar isCollapse={false} direction="ltr" showTrigger={false} animation={true}>
+        <AMSidebar isCollapse={false} direction="ltr" showTrigger={false} animation={true} >
           <AMLogo
             img="https://tailwind-admin.com/images/logo/white-logo.svg"
             component={Link}
@@ -37,12 +37,12 @@ function App() {
             badgeType="default"
             badgeColor={"bg-secondary"}
             isSelected={true}
-
+            
           >
             Modern
           </AMMenuItem>
 
-          <AMMenuItem icon={<ShoppingCart size={20} />} link="#">
+          <AMMenuItem icon={<ShoppingCart size={20} />} link="#" >
             eCommerce
           </AMMenuItem>
 

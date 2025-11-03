@@ -63,7 +63,7 @@ import Link from "next/link";
 
 const App = () => {
   return (
-    <AMSidebar width={"270px"} collapsible="none">
+    <AMSidebar width={"270px"} collapsible="none" className="bg-sidebar" >
       <AMLogo
         img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
         component={Link}

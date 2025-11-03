@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { SidebarContext } from "./Sidebar";
 
 import Links from "./Links";
@@ -6,6 +6,7 @@ import { CircleDot } from "lucide-react";
 import { cn } from "../lib/utils";
 import { Badge } from "./ui/badge"
 import { SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import styles from "./styles/menuitem.module.css";
 
 interface MenuItemProps {
     children: React.ReactNode;
@@ -53,10 +54,11 @@ export const AMMenuItem = ({
     const isCollapse = customizer?.isCollapse;
     const { animation } = useContext(SidebarContext);
 
+    useEffect(() => {
+     console.log(className , "My Menu item classname ")
+    },[className])
+
     return (
-
-
-
         <SidebarGroupContent>
             <SidebarMenu>
                 <SidebarMenuItem >
@@ -64,7 +66,8 @@ export const AMMenuItem = ({
                         <SidebarMenuButton asChild variant={variant} size={size} isActive={isSelected}>
                             <div
                                 className={cn(
-                                    "h-full whitespace-nowrap transition-all duration-200 ease-in-out",
+                                    "h-full whitespace-nowrap transition-all duration-200 ease-in-out shadcn_menu_item",
+                                    `${styles.shadcn_menu_item}`,
                                     animation && "transition-all duration-300 ease-in-out hover:translate-x-1 ",
                                     borderRadius,
                                     isSelected ? "text-white " : `text-sidebar-txtclr dark:text-white`,
@@ -74,6 +77,7 @@ export const AMMenuItem = ({
                                 )}
                                 style={{
                                     backgroundColor: isSelected ? customizer.themeColor : undefined,
+                                    color: isSelected ? "#ffffff" : undefined,
                                 }}
 
                             >

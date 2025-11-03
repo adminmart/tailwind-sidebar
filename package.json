@@ -1,6 +1,6 @@
 {
   "name": "tailwind-sidebar",
-  "version": "1.2.2",
+  "version": "1.2.7",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "./dist/index.es.js",
@@ -11,7 +11,7 @@
       "types": "./dist/index.d.ts"
     },
     "./styles.css": {
-    "import": "./dist/styles.css"
+    "import": "./dist/tailwind-sidebar.css"
   }
   },
   "files": [
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && npm run build:css",
+    "build": "tsc -b && vite build",
     "build:css": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/styles.css --minify",
     "lint": "eslint .",
     "preview": "vite preview"

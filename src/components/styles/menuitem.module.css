@@ -1,0 +1,6 @@
+.shadcn_menu_item:hover{
+    background-color: var(--lightprimary);
+    color: var(--sidebar-primary);
+   transform: translateX(0.25rem);
+
+}

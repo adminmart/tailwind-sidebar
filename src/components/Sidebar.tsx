@@ -19,7 +19,7 @@ type SidebarProps = {
     showProfile?: boolean;
     userimg?: string;
     onLogout?: () => void;
-    ClassName?: string;
+    className?: string;
     animation?: boolean;
     side?: "left" | "right"
     variant?: "sidebar" | "floating" | "inset"
@@ -58,7 +58,7 @@ export const AMSidebar = ({
     userimg = "https://bootstrapdemos.adminmart.com/modernize/dist/assets/images/profile/user-1.jpg",
     onLogout = handleLogout,
     animation = false,
-    ClassName = "",
+    className = "",
     side = "left",
     variant = "sidebar",
     collapsible = "icon",
@@ -98,7 +98,7 @@ export const AMSidebar = ({
           collapsible={collapsible}
           variant={variant}
           side={side}
-          className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", ClassName)}
+          className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", className)}
         >
           <SidebarContent>
             <SidebarGroup>

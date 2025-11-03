@@ -13,6 +13,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "./ui/sidebar";
+import styles from "./styles/submenu.module.css";
 
 type SubmenuProps = {
   children: React.ReactNode;
@@ -47,6 +48,7 @@ export function AMSubmenu({
             onClick={() => setOpen(!open)}
             className={clsx(
               "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
+              `${styles.shadcn_sub_menu}`,
               borderRadius,
               open ? "text-white" : `text-sidebar-txtclr dark:text-white`,
               customizer?.animation && " hover:translate-x-1",
@@ -60,6 +62,7 @@ export function AMSubmenu({
             )}
             style={{
               backgroundColor: open ? customizer?.themeColor : undefined,
+              color: open ? "#ffffff" : undefined,
             }}
           >
             <div className="flex items-center justify-between w-full">
