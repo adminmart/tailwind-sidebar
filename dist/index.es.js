@@ -7341,7 +7341,7 @@ function mu({
           "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
           `${ru.shadcn_sub_menu} ${i}`,
           s,
-          a ? "text-white" : "text-sidebar-txtclr dark:text-white",
+          a ? "text-white" : "text-sidebar-txtclr",
           c?.animation && " hover:translate-x-1",
           {
             "cursor-not-allowed opacity-50": o,
