@@ -100,7 +100,7 @@ export const AMSidebar = ({
           side={side}
           className={clsx("border-r border-border ", animation && "transition-all duration-300 ease-in-out", className)}
         >
-          <SidebarContent>
+          <SidebarContent className="!px-0" >
             <SidebarGroup>
             {children}
             </SidebarGroup>

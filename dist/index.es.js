@@ -7024,7 +7024,7 @@ const cu = ({
             side: b,
             className: xe("border-r border-border ", v && "transition-all duration-300 ease-in-out", m),
             children: [
-              /* @__PURE__ */ p.jsx($c, { children: /* @__PURE__ */ p.jsx(zc, { children: e }) }),
+              /* @__PURE__ */ p.jsx($c, { className: "!px-0", children: /* @__PURE__ */ p.jsx(zc, { children: e }) }),
               f && /* @__PURE__ */ p.jsx(
                 Vc,
                 {
