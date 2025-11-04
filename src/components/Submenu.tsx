@@ -48,7 +48,7 @@ export function AMSubmenu({
             disabled={disabled}
             onClick={() => setOpen(!open)}
             className={clsx(
-              "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
+              "side_sub transition-all duration-200 ease-in-out flex items-center gap-3",
               `${styles.shadcn_sub_menu} ${ClassName}`,
               borderRadius,
               open ? openClassName : `text-sidebar-txtclr`,

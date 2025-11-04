@@ -2,5 +2,7 @@
     background-color: var(--lightprimary);
     color: var(--sidebar-primary);
    transform: translateX(0.25rem);
-
+}
+.side_sub{
+  padding: 10px !important;
 }
