@@ -23,7 +23,7 @@ type SubmenuProps = {
   textFontSize?: string;
   disabled?: boolean;
   ClassName?: string;
-
+  openClassName?: string;
 };
 
 export function AMSubmenu({
@@ -34,6 +34,7 @@ export function AMSubmenu({
   disabled = false,
   borderRadius = "rounded-md",
   ClassName = "",
+  openClassName="text-white dark:text-white"
 
 }: SubmenuProps) {
   const [open, setOpen] = React.useState(false);
@@ -50,7 +51,7 @@ export function AMSubmenu({
               "p-2.5 transition-all duration-200 ease-in-out flex items-center gap-3",
               `${styles.shadcn_sub_menu} ${ClassName}`,
               borderRadius,
-              open ? "text-white" : `text-sidebar-txtclr`,
+              open ? openClassName : `text-sidebar-txtclr`,
               customizer?.animation && " hover:translate-x-1",
               {
                 "cursor-not-allowed opacity-50": disabled,
