@@ -1,6 +1,6 @@
-## Tailwind Sidebar – Easy, Customizable React & Next.js Sidebar
+## React Tailwind Sidebar – Easy, Customizable React.js Sidebar
 
-Build beautiful and responsive sidebars in seconds! **Tailwind Sidebar** is a lightweight and fully customizable sidebar component for React and Next.js projects. It comes with built-in support for **light/dark mode**, **RTL layouts**, and **easy styling options**. Change **colors**, **fonts**, **and style**s effortlessly using Tailwind classes or your own design system.
+Build beautiful and responsive sidebars in seconds! **React Tailwind Sidebar** is a lightweight and fully customizable sidebar component for React and Next.js projects. It comes with built-in support for **light/dark mode**, **RTL layouts**, and **easy styling options**. Change **colors**, **fonts**, **and style**s effortlessly using Tailwind classes or your own design system.
 
 Perfect for dashboards, admin panels, and SaaS apps where you want speed, flexibility, and style — without writing repetitive code.
 
