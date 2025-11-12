@@ -12,6 +12,15 @@ Perfect for dashboards, admin panels, and SaaS apps where you want speed, flexib
 
 #
 
+## 🧩 Live Example — Dashboard Template
+
+We’ve built a **complete Admin Dashboard Template** using this npm package!  
+It’s the perfect example of how you can use `react-tailwind-sidebar` in a real-world app.
+
+[![App Screenshot](https://tailwind-admin.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-section-image.882f0d48.png&w=1920&q=75)](https://tailwind-admin-react-free.netlify.app/)
+
+👉 **Check it out here:** [Dashboard Template](https://tailwind-admin-react-free.netlify.app/)
+
 ## Installation
 
 To install react tailwind sidebar npm package
@@ -226,6 +235,19 @@ export default App;
 ## Authors
 
 - [@adminmart](https://adminmart.com)
+
+## 🔗 Related Sidebars
+
+Looking for a Material UI alternative to this Tailwind CSS based sidebar?  
+Explore our companion package below:
+
+### [React MUI Sidebar](https://www.npmjs.com/package/react-mui-sidebar)
+
+A modern, responsive, and fully customizable sidebar component built with **React** and **Material UI** — perfect for creating clean and functional dashboards, admin panels, and web applications.
+
+---
+
+💡 Both `react-mui-sidebar` and `react-tailwind-sidebar` are crafted to simplify sidebar development — offering flexible layouts, effortless customization, and developer-friendly APIs.
 
 ## Contributing
 
