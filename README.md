@@ -1,6 +1,6 @@
-## React Tailwind Sidebar – Easy, Customizable React.js Sidebar
+## Tailwind Sidebar – Easy, Customizable React.js and Next.js Sidebar
 
-Build beautiful and responsive sidebars in seconds! **React Tailwind Sidebar** is a lightweight and fully customizable sidebar component for React and Next.js projects. It comes with built-in support for **light/dark mode**, **RTL layouts**, and **easy styling options**. Change **colors**, **fonts**, **and style**s effortlessly using Tailwind classes or your own design system.
+Build beautiful and responsive sidebars in seconds! **Tailwind Sidebar** is a lightweight and fully customizable sidebar component for React and Next.js projects. It comes with built-in support for **light/dark mode**, **RTL layouts**, and **easy styling options**. Change **colors**, **fonts**, **and style**s effortlessly using Tailwind classes or your own design system.
 
 Perfect for dashboards, admin panels, and SaaS apps where you want speed, flexibility, and style — without writing repetitive code.
 
@@ -15,7 +15,7 @@ Perfect for dashboards, admin panels, and SaaS apps where you want speed, flexib
 ## 🧩 Live Example — Dashboard Template
 
 We’ve built a **complete Admin Dashboard Template** using this npm package!  
-It’s the perfect example of how you can use `react-tailwind-sidebar` in a real-world app.
+It’s the perfect example of how you can use `tailwind-sidebar` in a real-world app.
 
 [![App Screenshot](https://tailwind-admin.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero-section-image.882f0d48.png&w=1920&q=75)](https://tailwind-admin-react-free.netlify.app/)
 
@@ -23,7 +23,7 @@ It’s the perfect example of how you can use `react-tailwind-sidebar` in a real
 
 ## Installation
 
-To install react tailwind sidebar npm package
+To install tailwind sidebar npm package
 
 ```bash
   npm i tailwind-sidebar
@@ -247,7 +247,7 @@ A modern, responsive, and fully customizable sidebar component built with **Reac
 
 ---
 
-💡 Both `react-mui-sidebar` and `react-tailwind-sidebar` are crafted to simplify sidebar development — offering flexible layouts, effortless customization, and developer-friendly APIs.
+💡 Both `react-mui-sidebar` and `tailwind-sidebar` are crafted to simplify sidebar development — offering flexible layouts, effortless customization, and developer-friendly APIs.
 
 ## Contributing
 
