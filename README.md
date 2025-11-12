@@ -1,14 +1,10 @@
-## React Tailwind Sidebar
+## Tailwind Sidebar – Easy, Customizable React & Next.js Sidebar
 
-React Tailwind Sidebar helps to create side Navigation.
+Build beautiful and responsive sidebars in seconds! **Tailwind Sidebar** is a lightweight and fully customizable sidebar component for React and Next.js projects. It comes with built-in support for **light/dark mode**, **RTL layouts**, and **easy styling options**. Change **colors**, **fonts**, **and style**s effortlessly using Tailwind classes or your own design system.
 
-# Live Demo
+Perfect for dashboards, admin panels, and SaaS apps where you want speed, flexibility, and style — without writing repetitive code.
 
-[Demo](https://tailwind-admin-react-free.netlify.app/)
-
-## Authors
-
-- [@adminmart](https://adminmart.com)
+# [Live Demo](https://tailwind-admin-react-free.netlify.app/)
 
 ## Screenshots
 
@@ -50,7 +46,7 @@ import {
   Command,
   Layers2,
 } from "lucide-react";
-import 'tailwind-sidebar/styles.css';
+import "tailwind-sidebar/styles.css";
 
 {
   /* if you are using react then import link from  */
@@ -63,7 +59,7 @@ import Link from "next/link";
 
 const App = () => {
   return (
-    <AMSidebar width={"270px"} collapsible="none" className="bg-sidebar" >
+    <AMSidebar width={"270px"} collapsible="none" className="bg-sidebar">
       <AMLogo
         img="https://adminmart.com/wp-content/uploads/2024/03/logo-admin-mart-news.png"
         component={Link}
@@ -226,6 +222,10 @@ export default App;
 | `img`        | `string`            | `Logo url` | set the logo of the sidebar                         |
 | `href`       | `string`            | `set url`  | set any url you wanted to redirect                  |
 | `component ` | `React.ElementType` | `Link `    | set react router link or nextjs Link to apply route |
+
+## Authors
+
+- [@adminmart](https://adminmart.com)
 
 ## Contributing
 
