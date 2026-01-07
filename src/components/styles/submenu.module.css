@@ -1,5 +1,5 @@
-.shadcn_sub_menu:hover{
-    background-color: var(--lightprimary);
-    color: var(--sidebar-primary);
-   transform: translateX(0.25rem);
+.shadcn_sub_menu:hover {
+  background-color: var(--sidebar-primary);
+  color: var(--primary);
+  transform: translateX(0.25rem);
 }

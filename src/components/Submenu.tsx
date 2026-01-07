@@ -34,8 +34,7 @@ export function AMSubmenu({
   disabled = false,
   borderRadius = "rounded-md",
   ClassName = "",
-  openClassName="text-white dark:text-white"
-
+  openClassName = "text-white dark:text-white",
 }: SubmenuProps) {
   const [open, setOpen] = React.useState(false);
   const customizer = React.useContext(SidebarContext);
@@ -51,29 +50,32 @@ export function AMSubmenu({
               "side_sub transition-all duration-200 ease-in-out flex items-center gap-3",
               `${styles.shadcn_sub_menu} ${ClassName}`,
               borderRadius,
-              open ? openClassName : `text-sidebar-txtclr`,
+
+              open ? openClassName : `dark:text-muted-foreground`,
+
               customizer?.animation && " hover:translate-x-1",
               {
                 "cursor-not-allowed opacity-50": disabled,
                 "cursor-pointer": !disabled,
                 // only apply hover styles if not disabled and not open
-                "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground dark:hover:text-sidebar-accent-foreground":
+                " hover:bg-sidebar-accent hover:text-sidebar-accent-foreground dark:hover:text-sidebar-accent-foreground":
                   !disabled && !open,
-              }
+              },
+              customizer.textColor
             )}
             style={{
               backgroundColor: open ? customizer?.themeColor : undefined,
-              color: open ? "#ffffff" : undefined,
+              color: open ? "var(--card)" : undefined,
             }}
           >
             <div className="flex items-center justify-between w-full">
               <div className="flex items-center gap-3">
-                <span className="text-inherit">
+                <span className="">
                   {icon ? icon : <CircleDot size={20} />}
                 </span>
                 {!customizer?.isCollapse && (
                   <span
-                    className={clsx(textFontSize, "truncate leading-tight")}
+                    className={clsx(textFontSize, "truncate leading-tight ")}
                   >
                     {title}
                   </span>
@@ -81,10 +83,7 @@ export function AMSubmenu({
               </div>
 
               {!customizer?.isCollapse &&
-                (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)
-
-              }
-
+                (open ? <ChevronDown size={16} /> : <ChevronRight size={16} />)}
             </div>
           </button>
         </CollapsibleTrigger>

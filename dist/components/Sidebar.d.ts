@@ -31,5 +31,5 @@ export declare const SidebarContext: React.Context<{
     direction: string;
     animation: boolean;
 }>;
-export declare const AMSidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, mode, direction, userName, designation, showProfile, userimg, onLogout, animation, className, side, variant, collapsible, showTrigger }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AMSidebar: ({ children, width, collapsewidth, textColor, isCollapse, themeColor, themeSecondaryColor, direction, userName, designation, showProfile, userimg, onLogout, animation, className, side, variant, collapsible, showTrigger, }: SidebarProps) => import("react/jsx-runtime").JSX.Element;
 export {};

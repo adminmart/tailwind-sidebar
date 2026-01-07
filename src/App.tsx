@@ -19,9 +19,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <AMSidebar isCollapse={false} direction="ltr" showTrigger={false} animation={true} >
+        <AMSidebar
+          isCollapse={false}
+          direction="ltr"
+          showTrigger={false}
+          animation={true}
+         
+        >
           <AMLogo
-            img="https://tailwind-admin.com/images/logo/white-logo.svg"
+            img="	https://tailwindadmin-reactjs-main.netlify.app/assets/dark-logo-CI_t418F.svg"
             component={Link}
             href="/"
           >
@@ -37,12 +43,11 @@ function App() {
             badgeType="default"
             badgeColor={"bg-secondary"}
             isSelected={true}
-            
           >
             Modern
           </AMMenuItem>
 
-          <AMMenuItem icon={<ShoppingCart size={20} />} link="#" >
+          <AMMenuItem icon={<ShoppingCart size={20} />} link="#">
             eCommerce
           </AMMenuItem>
 
@@ -66,7 +71,7 @@ function App() {
             <AMMenuItem>Level 1.1</AMMenuItem>
             <AMMenuItem>Level 1.2</AMMenuItem>
 
-            <AMSubmenu title="Level 2" icon={<Command size={20} />} >
+            <AMSubmenu title="Level 2" icon={<Command size={20} />}>
               <AMMenuItem>Level 2.1</AMMenuItem>
               <AMMenuItem>Level 2.2</AMMenuItem>
             </AMSubmenu>
@@ -76,8 +81,6 @@ function App() {
             badge={true}
             badgeContent={"outline"}
             badgeType="outline"
-
-
             icon={<Layers2 size={20} />}
           >
             Outline
@@ -87,7 +90,7 @@ function App() {
             Disabled
           </AMMenuItem>
         </AMSidebar>
-      </BrowserRouter >
+      </BrowserRouter>
     </>
   );
 }
